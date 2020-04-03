@@ -37,7 +37,11 @@ class ApplicationWindow(QDialog):
             self.ui.pushButton_4.setEnabled(True)
             # self.disable_buttons_when_noBus()
 
-    # def disable_buttons_when_noSeats(self):
+    def disable_buttons_when_noSeats(self):
+        if int(self.busList[self.ui.comboBox.currentText()])-1 > 0:
+            self.ui.pushButton.setEnabled(True)
+        else:
+            self.ui.pushButton.setEnabled(False)
     #     # print(int(self.ui.label_seat_available.text())>0)
     #     if int(self.ui.label_seat_available.text())>0:
     #         self.ui.pushButton.setEnabled(True)
@@ -49,10 +53,8 @@ class ApplicationWindow(QDialog):
     def availableSeatsPopulate(self):
         self.current_available_seats = self.busList[str(self.ui.comboBox.currentText())]
         self.ui.label_seat_available.setText(str(self.current_available_seats ))
-        if int(self.busList[self.ui.comboBox.currentText()])-1 > 0:
-            self.ui.pushButton.setEnabled(True)
-        else:
-            self.ui.pushButton.setEnabled(False)
+        self.disable_buttons_when_noSeats()
+
 
     def addPassanger(self):
         self.current_bus_number = self.ui.comboBox.currentText()
@@ -81,12 +83,12 @@ class ApplicationWindow(QDialog):
         #self.disable_buttons_when_noSeats()
         get_bus_number = self.ui.comboBox.currentText()
         if int(self.busList[get_bus_number])-1 > 0:
-            self.busList[get_bus_number] = self.busList[get_bus_number] - 1
-            available_seats = self.busList[get_bus_number]
-            self.current_available_seats = available_seats
+            self.busList[get_bus_number] = int(self.busList[get_bus_number]) - 1
+            # available_seats = self.busList[get_bus_number]
+            self.current_available_seats = self.busList[get_bus_number]
             self.ui.label_seat_available.setText(str(self.current_available_seats ))
         else:
-            self.ui.pushButton.setEnabled(False)
+            self.disable_buttons_when_noSeats()
         print(self.busList)
         print(m)
 
