@@ -27,21 +27,30 @@ class ApplicationWindow(QDialog):
         self.ui.comboBox.currentIndexChanged.connect(self.availableSeatsPopulate)
     
     def disable_buttons_when_noBus(self):
-        print("yo")
         # self.ui.comboBox.currentText()
-        if self.ui.comboBox.currentText() == "":
+        if self.ui.comboBox.currentText() == "" or self.ui.label_seat_available.text() == "0":
             self.ui.pushButton.setEnabled(False)
-            self.ui.pushButton_4.setEnabled(False)
+            self.ui.pushButton_4.setEnabled(False)            
         else:
             self.ui.pushButton.setEnabled(True)
             self.ui.pushButton_4.setEnabled(True)
-        
+            # self.disable_buttons_when_noBus()
+
+    def disable_buttons_when_noSeats(self):
+        # print(int(self.ui.label_seat_available.text())>0)
+        if int(self.ui.label_seat_available.text())>0:
+            self.ui.pushButton.setEnabled(True)
+            # self.disable_buttons_when_noBus()
+        else:
+            self.ui.pushButton.setEnabled(False)
+            # self.disable_buttons_when_noBus()
+                   
     def availableSeatsPopulate(self):
         self.current_available_seats = self.busList[str(self.ui.comboBox.currentText())]
         self.ui.label_seat_available.setText(str(self.current_available_seats ))
         
-    def displayAvailableSeats(self):
-        self.ui.label_seat_available.setText(self.newJourney)
+    # def displayAvailableSeats(self):
+    #     self.ui.label_seat_available.setText(self.newJourney)
 
     def addPassanger(self):
         self.current_bus_number = self.ui.comboBox.currentText()
@@ -67,7 +76,14 @@ class ApplicationWindow(QDialog):
 
     @pyqtSlot(dict)
     def passenger_info_gather(self, m):
-        self.current_bus_number
+        self.disable_buttons_when_noSeats()
+        # if int(self.current_available_seats)> 0:
+        get_bus_number = self.ui.comboBox.currentText()
+        self.busList[get_bus_number] = self.busList[get_bus_number] - 1
+        available_seats = self.busList[get_bus_number]
+        self.current_available_seats = available_seats
+        self.ui.label_seat_available.setText(str(self.current_available_seats ))
+        print(self.busList)
         print(m)
 
 class AddPassengerDialog(QDialog):
