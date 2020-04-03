@@ -25,10 +25,11 @@ class ApplicationWindow(QDialog):
         self.ui.pushButton.clicked.connect(self.addPassanger)
         self.ui.pushButton_3.clicked.connect(self.addBus)
         self.ui.comboBox.currentIndexChanged.connect(self.availableSeatsPopulate)
+
     
     def disable_buttons_when_noBus(self):
         # self.ui.comboBox.currentText()
-        if self.ui.comboBox.currentText() == "" or self.ui.label_seat_available.text() == "0":
+        if self.ui.comboBox.currentText() == "" or int(self.ui.label_seat_available.text()) == 0:
             self.ui.pushButton.setEnabled(False)
             self.ui.pushButton_4.setEnabled(False)            
         else:
@@ -36,21 +37,22 @@ class ApplicationWindow(QDialog):
             self.ui.pushButton_4.setEnabled(True)
             # self.disable_buttons_when_noBus()
 
-    def disable_buttons_when_noSeats(self):
-        # print(int(self.ui.label_seat_available.text())>0)
-        if int(self.ui.label_seat_available.text())>0:
-            self.ui.pushButton.setEnabled(True)
-            # self.disable_buttons_when_noBus()
-        else:
-            self.ui.pushButton.setEnabled(False)
-            # self.disable_buttons_when_noBus()
+    # def disable_buttons_when_noSeats(self):
+    #     # print(int(self.ui.label_seat_available.text())>0)
+    #     if int(self.ui.label_seat_available.text())>0:
+    #         self.ui.pushButton.setEnabled(True)
+    #         # self.disable_buttons_when_noBus()
+    #     else:
+    #         self.ui.pushButton.setEnabled(False)
+    #         # self.disable_buttons_when_noBus()
                    
     def availableSeatsPopulate(self):
         self.current_available_seats = self.busList[str(self.ui.comboBox.currentText())]
         self.ui.label_seat_available.setText(str(self.current_available_seats ))
-        
-    # def displayAvailableSeats(self):
-    #     self.ui.label_seat_available.setText(self.newJourney)
+        if int(self.busList[self.ui.comboBox.currentText()])-1 > 0:
+            self.ui.pushButton.setEnabled(True)
+        else:
+            self.ui.pushButton.setEnabled(False)
 
     def addPassanger(self):
         self.current_bus_number = self.ui.comboBox.currentText()
@@ -65,7 +67,7 @@ class ApplicationWindow(QDialog):
         # self.newWindow.bus_seats.connect(self.myEvent)
         if self.newWindow.exec_() == QDialog.accepted:
             print("ok")
-            # self.ui.label_seat_available.setText(self.availableSeats)
+
 
     @pyqtSlot(dict)
     def myEvent(self, n):
@@ -76,13 +78,15 @@ class ApplicationWindow(QDialog):
 
     @pyqtSlot(dict)
     def passenger_info_gather(self, m):
-        self.disable_buttons_when_noSeats()
-        # if int(self.current_available_seats)> 0:
+        #self.disable_buttons_when_noSeats()
         get_bus_number = self.ui.comboBox.currentText()
-        self.busList[get_bus_number] = self.busList[get_bus_number] - 1
-        available_seats = self.busList[get_bus_number]
-        self.current_available_seats = available_seats
-        self.ui.label_seat_available.setText(str(self.current_available_seats ))
+        if int(self.busList[get_bus_number])-1 > 0:
+            self.busList[get_bus_number] = self.busList[get_bus_number] - 1
+            available_seats = self.busList[get_bus_number]
+            self.current_available_seats = available_seats
+            self.ui.label_seat_available.setText(str(self.current_available_seats ))
+        else:
+            self.ui.pushButton.setEnabled(False)
         print(self.busList)
         print(m)
 
