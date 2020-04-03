@@ -1,0 +1,2 @@
+# aviikc
+qt_busTicket
