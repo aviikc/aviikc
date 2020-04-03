@@ -1,0 +1,1 @@
+pyuic5 -x primary_dialog01.ui -o primary_dialog01.py
