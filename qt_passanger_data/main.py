@@ -42,13 +42,7 @@ class ApplicationWindow(QDialog):
             self.ui.pushButton.setEnabled(True)
         else:
             self.ui.pushButton.setEnabled(False)
-    #     # print(int(self.ui.label_seat_available.text())>0)
-    #     if int(self.ui.label_seat_available.text())>0:
-    #         self.ui.pushButton.setEnabled(True)
-    #         # self.disable_buttons_when_noBus()
-    #     else:
-    #         self.ui.pushButton.setEnabled(False)
-    #         # self.disable_buttons_when_noBus()
+
                    
     def availableSeatsPopulate(self):
         self.current_available_seats = self.busList[str(self.ui.comboBox.currentText())]
