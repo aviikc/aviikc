@@ -1,0 +1,35 @@
+1) Evaluate:
+listOne = [20, 40, 60, 80]
+listTwo = [20, 40, 60, 80, 77]
+
+listOne.append(77)
+
+if listOne == listTwo:
+	print(5+5)
+else:
+	print(10+10)
+
+
+
+
+
+2)  What is the difference between 10 / 3 and 10 // 3?
+
+3)  What is the result of 10 ** 3?
+
+4)  Given (x = 1), what will be the value of after we run (x += 2)?
+
+5)  What is the result of float(1)?
+
+6)  What is the result of bool(“False”)?
+
+7)  What are the falsy values in Python?
+
+8)  What is the result of 10 == “10”?
+
+9)  What is the result of “bag” > “apple”?
+
+10) What is the result of not(True or False)?
+
+
+11) taking any three numbers find the maximum of the three.
