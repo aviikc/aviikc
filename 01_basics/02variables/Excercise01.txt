@@ -1,0 +1,17 @@
+Find out what these string functions do with two example.
+
+capitalize()
+count()
+format()
+isalpha()
+isdecimal()
+isdigit()
+islower()
+isnumeric()
+isupper()
+join()
+split()
+strip()
+startswith()
+upper()
+zfill()	

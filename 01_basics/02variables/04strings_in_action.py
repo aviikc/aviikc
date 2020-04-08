@@ -51,3 +51,4 @@ print(a[-5:-1]) #Result: Girl
 # If we were to print till the last letter or the full letter Girls use
 print(a[-5:])
 #An open end means zero
+

@@ -1,16 +1,28 @@
-from passenger import Passengers
-from bus import Busses
+from core.passenger import Passengers
+from core.bus import Busses
 
 class TransportService():
     def __init__(self):
         self.__available_busses = []
         # self.current_plying_buses = []
 
+    def getAvailableBuses(self):
+        return self.__available_busses
+
     def addBus(self, bus_number, seats):
         bus_available = Busses(bus_number, seats)
         self.__available_busses.append(bus_available)
 
-    
+    def loadBus(self, bus_number, **kwargs):
+        for key in kwargs:
+            if key == "firstName" or key == "lastName" or key == "phoneNumber"  or key =="boarding"  or key =="destination"  or key =="boardingTime"  or key =="seatnumber":
+                for i in i in self.getAvailableBuses():
+                    if i.getBusNumber == bus_number:
+                        newDict={}
+                        newDict.update(key = kwargs[key])
+            i.addPassengers(**newDict)
+        return 1
+
 
 
         
