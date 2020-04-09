@@ -1,0 +1,13 @@
+1.) Evaluate 
+a) (5%10 + 10 < 50 and 29>=29)
+b) (7**2//4 + 5>8 or 5 != 6)
+c) ("hello"*5> "hello" or "bye" < "Bye")
+
+
+2.) Evaluate the following by taking inputs from user in x,y,z and comparing:
+((x<y) or (not(z == y)) and (z<x)))
+
+3.) Construct logical expressions for representing the following statements.
+a) marks scored should be greater than 300 and less than 400
+b) wheather the output from the os.getlogin is uppercase letter. if not convert to uppercase
+c) Job post is a match-move artist and experience is more than 2 years.
