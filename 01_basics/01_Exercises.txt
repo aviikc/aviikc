@@ -1,0 +1,37 @@
+1.)  Evaluate
+a) math.ceil(6.568)    b) math.floor(678.65)
+c) maximum value in [765, 645, 45.6, -23]
+
+
+2.) Create python functions to print the following output.
+
+a)
+$ $ $ $ $
+$       $
+$       $
+$       $
+$ $ $ $ $
+
+b)
+
+      *  
+   *  *  *
+*  *  *  *  *
+   *  *  *  
+      *
+
+3.) 
+a) Create a function that asks for a username and password:
+if username and pasword is "user" and "pass123" authenticate
+by printing "User Authenticated".
+
+b)
+Create a funtion that takes three inputs and returns the 
+average of them.
+
+c)
+Create a program that takes the marks of a student in 
+History, Geography, Science, Maths and totals them.
+Also the program should print out grades like
+(A+, A, B+, B, C+, C, F) according to the total marks being
+(90% and up, 90%-80%, 80%-70%, 70%-60%, 60%-50%, below 50%)
