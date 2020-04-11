@@ -27,37 +27,29 @@ print(type("Fruits"))  #Result: <class 'str'>
 cost_price = input("Enter Cost Price: ")
 profit = input("Enter Profit: : ")
 selling_price = cost_price + profit
-print("Selling Price: ", selling_price) #Result Selling Price: 10050
+print("Selling Price: ", selling_price) # for inputs of 100 and 50 respectively. Result: Selling Price: 10050
 
 
-cost_price = input("Enter Cost Price: ")
-profit = input("Enter Profit: : ")
+cost_price_new = int(input("Enter Cost Price: "))
+profit_new = int(input("Enter Profit: : "))
 selling_price = cost_price + profit
-print("Selling Price: ", selling_price) #Result Selling Price: 10050
+print("Selling Price: ", selling_price) # for inputs of 100 and 50 respectively. Result: Selling Price: 150 
 
 
 
 
 # min() , max() of list
-# my_list = [1,2,3,4,6]
+my_list = [1,2,3,4,6]
 
-# print(min(my_list))
-# print(max(my_list))
-
-
-
-# math module
-# import math
+print(min(my_list))
+print(max(my_list))
 
 
-# print(math.ceil(1.4566))
-# print(math.floor(1.4566))
 
-# sys module
-# import sys
+#importing math module  # https://docs.python.org/3/library/math.html
+import math
 
-# print (sys.path)
-# i = "aviik"
 
-# sys.path.append(i)
-# print(sys.path)
+print(math.ceil(1.4566))
+print(math.floor(1.4566))
+
