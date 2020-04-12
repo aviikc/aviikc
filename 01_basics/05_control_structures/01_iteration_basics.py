@@ -23,3 +23,11 @@ def new_main():
         sum += num
         count += 1
     return sum
+
+
+'''
+Computers are often used to automate repetitive tasks. 
+Repeating identical or similar tasks without making errors is something that computers do well and people do poorly.
+
+Repeated execution of a set of statements is called iteration.
+'''
