@@ -30,4 +30,7 @@ Computers are often used to automate repetitive tasks.
 Repeating identical or similar tasks without making errors is something that computers do well and people do poorly.
 
 Repeated execution of a set of statements is called iteration.
+
+An iterable is an object capable of returning its members one by one.
+
 '''
