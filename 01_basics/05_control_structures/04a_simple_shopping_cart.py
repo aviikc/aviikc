@@ -13,7 +13,7 @@ Programming video is on vimeo
 https://vimeo.com/406771429
 password: 12345
 
-Will show how to debug and eradicate typeErrors, duplicates in another video.
+Will show how to handle exceptions and eradicate typeErrors, duplicates in another video.
 '''
 
 

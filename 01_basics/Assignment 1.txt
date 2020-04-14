@@ -1,0 +1,42 @@
+1. Write a while loop wher you take the integer input from command prompt,
+  and if the number n is odd print "Number is odd" else print "Number is even".
+
+2. Write a while loop wher you take the input from command prompt,
+     The loop will contiue to print "you are great", till the pass integer is 8.
+     On reciveing 8 , it should break the loop and print "out of loop".
+
+3.  Write a big block stucture file, which when runs gives the foolowing output
+
+   ###############################
+   ##   1. Write your Name      ##
+   ##   2. Say Hello Name       ##
+   ##   3. Exit the programme   ##
+   ###############################
+  What is your option : _ _
+
+This programe should continuesly runs untill option 3 is not given.
+
+4. Print the nth summation value for following series
+   1^2 + 2^2 + 3^2 + 4^2 +.......
+   where x^y means y to the power of x. As input a value n is pass, so the summetion upto 
+   that element has to be given.
+
+5. Print the nth summation value for following series
+   1^2 + ( 1^2 + 2^2 ) + (1^2 + 2^2 + 3^2) + .......
+   where x^y means y to the power of x. As input a value n is pass, so the summetion upto 
+   that element has to be given. Hint : Try to use 2 loops.
+6.
+Write a Python function that takes two lists and returns True if they have at least one common member.
+
+7.Write a Python program to convert a list of characters into a string.
+
+8. Suppose you have the list:
+['dog', 'pencil', 'fence', 'dog', 'apple', 'dog', 'dog', 'dog', 'pear', 'pencil', 'pear', 'pear']
+Using a dictionary, compute the numbers of times each word occurs.
+
+9.Write a function that takes one string and checks wheather its a palindrome or not.
+
+10. Write a Python script to generate and print a dictionary that contains a number (between 1 and n) in the form (x, x*x). 
+Sample Dictionary ( n = 5) : 
+Expected Output : {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
