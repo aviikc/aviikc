@@ -143,8 +143,60 @@ print(dino_3.checkIfDinosaur())                         #Result: False
 Hence the representation of these tables have changed,
 
 [[./img/dino_uml.jpg]]
-The whole process can be given a GUI.
+The whole process may be given a GUI.
 
 #+CAPTION: This is a gui to insert dinosaur information to the computer.
 #+NAME:   fig:SED-HR4049
 [[./img/dino_gui.png]]
+
+Well while creating an instance what if we could place the values of era, name, locomotion, habitat, food_habbits,size and flight as a parameter it would spare us the extra time in gathering information one by one. One way of doing that is by initializing the instance as,
+
+#+BEGIN_SRC python
+dino_1 = Dinosaurs(234, "Tyranosorus rex", "walking", ["dinosaurs", "insects", "fishes"], ["grasslands"], 12, False) 
+#+END_SRC
+
+This way whenever we press ok in the GUI shown in figure1 we end up creating an instace with the initiated values. Constructors are special class members which are called by the Python interpreter every time an object of that class is instantiated. A constructor of a class is actually a member function of the class its declared as: 
+#+BEGIN_SRC python
+class Cowboys:
+    def __init__():
+''' This is the constructor '''
+        pass
+#+END_SRC
+Similiarly like a constructor there is a destrutor. Its use unlike the constructor is to destroy/delete an instance of the class. Its declared as:
+#+BEGIN_SRC python
+class Cowboys:
+    def __init__(self):
+    # Used to construct the instance
+        pass
+
+    def __del__(self):
+    # Used to destroy an instance
+        pass
+#+END_SRC
+
+These double underscore also known as dunder methods are also called magic methods. Lets recreate Dinosaurs class using the constructor method.
+
+#+BEGIN_SRC python
+class Dinosaurs():
+    def __init__(self, era, name, locomotion, habitat, food_habbits, size, flight):
+''' This is the constructor '''
+        self.era = era
+        self.name = name
+        self.locomotion = locomotion
+        self.habitat = habitat
+        self.food_habbits = food_habbits
+        self.size = size
+        self.flight = flight
+
+    def __del__(self):
+        return f'Instance Destroyed with name {self.name}'
+#+END_SRC
+
+So now,
+#+BEGIN_SRC python
+dino_1 = Dinosaurs(234, "Tyranosorus rex", "walking", ["dinosaurs", "insects", "fishes"], ["grasslands"], 12, False)
+dino_2 = Dinosaurs(238.7, "Mosasasaurus", "swimming", ["molluscs", "fish"], ["ocean", "sea"], 22, False)
+dino_3 = Dinosaurs(234, "Ptarandon", "flying", ["insect", "fish"], ["mountains", "marshes"], 9, True)
+
+del dino_2    # Deletes/destroys dino_2 instance
+#+END_SRC

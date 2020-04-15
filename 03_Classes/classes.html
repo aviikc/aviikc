@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-15 Wed 21:40 -->
+<!-- 2020-04-15 Wed 22:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Classes in Python</title>
@@ -234,14 +234,14 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf18d375">1. Classes</a></li>
+<li><a href="#org389c42f">1. Classes</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgf18d375" class="outline-2">
-<h2 id="orgf18d375"><span class="section-number-2">1</span> Classes</h2>
+<div id="outline-container-org389c42f" class="outline-2">
+<h2 id="org389c42f"><span class="section-number-2">1</span> Classes</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 One of the important reason why we are using Python today is because it is an Object Oriented Programming Language. And you might hear from time to time that everything in Python is an object. Lets see how i can make this mumbo jumbo a little bit more clear.
@@ -435,21 +435,88 @@ Hence the representation of these tables have changed,
 
 <p>
 <img src="./img/dino_uml.jpg" alt="dino_uml.jpg" />
-The whole process can be given a GUI.
+The whole process may be given a GUI.
 </p>
 
 
-<div id="orgdffcceb" class="figure">
+<div id="org9d6c796" class="figure">
 <p><img src="./img/dino_gui.png" alt="dino_gui.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>This is a gui to insert dinosaur information to the computer.</p>
+</div>
+
+<p>
+Well while creating an instance what if we could place the values of era, name, locomotion, habitat, food<sub>habbits,size</sub> and flight as a parameter it would spare us the extra time in gathering information one by one. One way of doing that is by initializing the instance as,
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #eedd82;">dino_1</span> = Dinosaurs(234, <span style="color: #ffa07a;">"Tyranosorus rex"</span>, <span style="color: #ffa07a;">"walking"</span>, [<span style="color: #ffa07a;">"dinosaurs"</span>, <span style="color: #ffa07a;">"insects"</span>, <span style="color: #ffa07a;">"fishes"</span>], [<span style="color: #ffa07a;">"grasslands"</span>], 12, <span style="color: #7fffd4;">False</span>) 
+</pre>
+</div>
+
+<p>
+This way whenever we press ok in the GUI shown in figure1 we end up creating an instace with the initiated values. Constructors are special class members which are called by the Python interpreter every time an object of that class is instantiated. A constructor of a class is actually a member function of the class its declared as: 
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Cowboys</span>:
+<span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__init__</span>():
+<span style="color: #ffa07a;">''' This is the constructor '''</span>
+<span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">pass</span>
+</pre>
+</div>
+<p>
+Similiarly like a constructor there is a destrutor. Its use unlike the constructor is to destroy/delete an instance of the class. Its declared as:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Cowboys</span>:
+<span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__init__</span>(<span style="color: #00ffff;">self</span>):
+<span style="background-color: #1a1a1a;"> </span>   <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">Used to construct the instance</span>
+<span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">pass</span>
+
+<span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__del__</span>(<span style="color: #00ffff;">self</span>):
+<span style="background-color: #1a1a1a;"> </span>   <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">Used to destroy an instance</span>
+<span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">pass</span>
+</pre>
+</div>
+
+<p>
+These double underscore also known as dunder methods are also called magic methods. Lets recreate Dinosaurs class using the constructor method.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Dinosaurs</span>():
+<span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__init__</span>(<span style="color: #00ffff;">self</span>, era, name, locomotion, habitat, food_habbits, size, flight):
+<span style="color: #ffa07a;">''' This is the constructor '''</span>
+<span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.era = era
+<span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.name = name
+<span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.locomotion = locomotion
+<span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.habitat = habitat
+<span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.food_habbits = food_habbits
+<span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.size = size
+<span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.flight = flight
+
+<span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__del__</span>(<span style="color: #00ffff;">self</span>):
+<span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> f<span style="color: #ffa07a;">'Instance Destroyed with name {self.name}'</span>
+</pre>
+</div>
+
+<p>
+So now,
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #eedd82;">dino_1</span> = Dinosaurs(234, <span style="color: #ffa07a;">"Tyranosorus rex"</span>, <span style="color: #ffa07a;">"walking"</span>, [<span style="color: #ffa07a;">"dinosaurs"</span>, <span style="color: #ffa07a;">"insects"</span>, <span style="color: #ffa07a;">"fishes"</span>], [<span style="color: #ffa07a;">"grasslands"</span>], 12, <span style="color: #7fffd4;">False</span>)
+<span style="color: #eedd82;">dino_2</span> = Dinosaurs(238.7, <span style="color: #ffa07a;">"Mosasasaurus"</span>, <span style="color: #ffa07a;">"swimming"</span>, [<span style="color: #ffa07a;">"molluscs"</span>, <span style="color: #ffa07a;">"fish"</span>], [<span style="color: #ffa07a;">"ocean"</span>, <span style="color: #ffa07a;">"sea"</span>], 22, <span style="color: #7fffd4;">False</span>)
+<span style="color: #eedd82;">dino_3</span> = Dinosaurs(234, <span style="color: #ffa07a;">"Ptarandon"</span>, <span style="color: #ffa07a;">"flying"</span>, [<span style="color: #ffa07a;">"insect"</span>, <span style="color: #ffa07a;">"fish"</span>], [<span style="color: #ffa07a;">"mountains"</span>, <span style="color: #ffa07a;">"marshes"</span>], 9, <span style="color: #7fffd4;">True</span>)
+
+<span style="color: #00ffff;">del</span> dino_2    <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">Deletes/destroys dino_2 instance</span>
+</pre>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Aviik Chakraborty</p>
-<p class="date">Created: 2020-04-15 Wed 21:40</p>
+<p class="date">Created: 2020-04-15 Wed 22:38</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

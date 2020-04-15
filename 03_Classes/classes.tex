@@ -1,4 +1,4 @@
-% Created 2020-04-15 Wed 21:41
+% Created 2020-04-15 Wed 22:38
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -32,7 +32,7 @@
 
 
 \section{Classes}
-\label{sec:org219c4e7}
+\label{sec:orgdf76ffb}
 
 One of the important reason why we are using Python today is because it is an Object Oriented Programming Language. And you might hear from time to time that everything in Python is an object. Lets see how i can make this mumbo jumbo a little bit more clear.
 
@@ -184,12 +184,64 @@ Hence the representation of these tables have changed,
 \begin{center}
 \includegraphics[width=.9\linewidth]{./img/dino_uml.jpg}
 \end{center}
-The whole process can be given a GUI.
+The whole process may be given a GUI.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{./img/dino_gui.png}
-\caption{\label{fig:orgfebb40d}
+\caption{\label{fig:orgaff86e5}
 This is a gui to insert dinosaur information to the computer.}
 \end{figure}
+
+Well while creating an instance what if we could place the values of era, name, locomotion, habitat, food\(_{\text{habbits,size}}\) and flight as a parameter it would spare us the extra time in gathering information one by one. One way of doing that is by initializing the instance as,
+
+\begin{verbatim}
+dino_1 = Dinosaurs(234, "Tyranosorus rex", "walking", ["dinosaurs", "insects", "fishes"], ["grasslands"], 12, False) 
+\end{verbatim}
+
+This way whenever we press ok in the GUI shown in figure1 we end up creating an instace with the initiated values. Constructors are special class members which are called by the Python interpreter every time an object of that class is instantiated. A constructor of a class is actually a member function of the class its declared as: 
+\begin{verbatim}
+class Cowboys:
+    def __init__():
+''' This is the constructor '''
+        pass
+\end{verbatim}
+Similiarly like a constructor there is a destrutor. Its use unlike the constructor is to destroy/delete an instance of the class. Its declared as:
+\begin{verbatim}
+class Cowboys:
+    def __init__(self):
+    # Used to construct the instance
+        pass
+
+    def __del__(self):
+    # Used to destroy an instance
+        pass
+\end{verbatim}
+
+These double underscore also known as dunder methods are also called magic methods. Lets recreate Dinosaurs class using the constructor method.
+
+\begin{verbatim}
+class Dinosaurs():
+    def __init__(self, era, name, locomotion, habitat, food_habbits, size, flight):
+''' This is the constructor '''
+        self.era = era
+        self.name = name
+        self.locomotion = locomotion
+        self.habitat = habitat
+        self.food_habbits = food_habbits
+        self.size = size
+        self.flight = flight
+
+    def __del__(self):
+        return f'Instance Destroyed with name {self.name}'
+\end{verbatim}
+
+So now,
+\begin{verbatim}
+dino_1 = Dinosaurs(234, "Tyranosorus rex", "walking", ["dinosaurs", "insects", "fishes"], ["grasslands"], 12, False)
+dino_2 = Dinosaurs(238.7, "Mosasasaurus", "swimming", ["molluscs", "fish"], ["ocean", "sea"], 22, False)
+dino_3 = Dinosaurs(234, "Ptarandon", "flying", ["insect", "fish"], ["mountains", "marshes"], 9, True)
+
+del dino_2    # Deletes/destroys dino_2 instance
+\end{verbatim}
 \end{document}
