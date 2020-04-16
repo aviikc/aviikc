@@ -1,4 +1,4 @@
-% Created 2020-04-16 Thu 09:46
+% Created 2020-04-16 Thu 18:24
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -14,6 +14,10 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage{framed}
+\usepackage{xcolor}
+\definecolor{shadecolor}{gray}{.95}
+\newenvironment{results}{\begin{shaded}}{\end{shaded}}
 \author{Aviik Chakraborty}
 \date{\today}
 \title{Classes in Python}
@@ -27,12 +31,11 @@
 \begin{document}
 
 \maketitle
-\tableofcontents
 
 
 
 \section{Classes}
-\label{sec:orgc84afcc}
+\label{sec:org85fa35d}
 
 One of the important reason why we are using Python today is because it is an Object Oriented Programming Language. And you might hear from time to time that everything in Python is an object. Lets see how i can make this mumbo jumbo a little bit more clear.
 
@@ -87,7 +90,10 @@ Dinosaur \\
 
 
 In Python this representation can be written as,
+
+
 \begin{verbatim}
+
 class Dinosaurs:
 ''' The dinosaur is a pre historic animal '''
     era = 1                      # Default value 1
@@ -105,6 +111,8 @@ class Dinosaurs:
         if self.era<243 and self.era>233.23:
             return True
 \end{verbatim}
+
+
 
 This is actually how a Class in python is defined. But wait lets use it.
 
@@ -139,6 +147,7 @@ era, name, locomotion, etc. "Self" parameter here represents the instance itself
 \begin{center}
 \includegraphics[width=.9\linewidth]{./img/dino_uml_empty.jpg}
 \end{center}
+
 
 Now look those values that has replaced the   tributes. Looks like a big mess. So much so for Object Oriented Programming. This looks like a mockery and a waste of precious time. But its not what it looks like here the attribute values can be over-written for each individual instances.
 \begin{verbatim}
@@ -181,25 +190,28 @@ print(dino_3.checkIfDinosaur())                         #Result: False
 
 Hence the representation of these tables have changed,
 
+
 \begin{center}
 \includegraphics[width=.9\linewidth]{./img/dino_uml.jpg}
 \end{center}
+
+
 The whole process may be given a GUI.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{./img/dino_gui.png}
-\caption{\label{fig:orgc483fc9}
+\caption{\label{fig:org8d9c2a3}
 This is a gui to insert dinosaur information to the computer.}
 \end{figure}
 
 Well while creating an instance what if we could place the values of era, name, locomotion, habitat, food\(_{\text{habbits,size}}\) and flight as a parameter it would spare us the extra time in gathering information one by one. One way of doing that is by initializing the instance as,
 
 \begin{verbatim}
-dino_1 = Dinosaurs(234, "Tyranosorus rex", "walking", ["dinosaurs", "insects", "fishes"], ["grasslands"], 12, False) 
+dino_1 = Dinosaurs(234, "Tyranosorus rex", "walking", ["dinosaurs", "insects", "fishes"], ["grasslands"], 12, False)
 \end{verbatim}
 
-This way whenever we press ok in the GUI shown in figure1 we end up creating an instace with the initiated values. Constructors are special class members which are called by the Python interpreter every time an object of that class is instantiated. A constructor of a class is actually a member function of the class its declared as: 
+This way whenever we press ok in the GUI shown in figure1 we end up creating an instace with the initiated values. Constructors are special class members which are called by the Python interpreter every time an object of that class is instantiated. A constructor of a class is actually a member function of the class its declared as:
 \begin{verbatim}
 class Cowboys:
     def __init__():
@@ -208,11 +220,14 @@ class Cowboys:
 \end{verbatim}
 
 Some more examples are:
+
+
 \begin{center}
 \includegraphics[width=.9\linewidth]{./img/cars_uml.jpg}
 \end{center} \begin{center}
 \includegraphics[width=.9\linewidth]{./img/fruits_uml.jpg}
 \end{center}
+
 
 
 Similiarly like a constructor there is a destrutor. Its use unlike the constructor is to destroy/delete an instance of the class. Its declared as:
@@ -255,7 +270,60 @@ del dino_2    # Deletes/destroys dino_2 instance
 \end{verbatim}
 
 Some examples
+
+
 \begin{center}
 \includegraphics[width=.9\linewidth]{./img/moped_class.jpg}
 \end{center}
+
+
+lets see some practical use of class in creating a notebook app. Where the user stores notes taken under different titles and also has an additional feature of applying tags to the notes. Notebooks have notes and notes have text, title, tags, date. A few methods we can assign to the Notebook are, search note(by tag, title), add new note, modify a note, show all notes.
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{./img/notes.png}
+\end{center}
+
+
+This is an example of one to many relationship where a notebook can have multiple notes.
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{./img/noteToNotesRelation.png}
+\end{center}
+
+
+\begin{verbatim}
+ 1  #!/usr/bin/env python3
+ 2  
+ 3  from datetime import datetime
+ 4  
+ 5  
+ 6  class Note:
+ 7      def __init__(self, memo="", title="", tags=[]):
+ 8          self.memo = memo
+ 9          self.title = title
+10          self.tags = tags
+11          self.time_now = datetime.now()
+12  
+13      def match(self, filter):
+14          return filter in self.title or filter in self.tags
+15  
+16      def __del__(self):
+17          return f'Note titled {self.title} created on {self.time_now} deleted!'
+18  
+19      def __repr__(self):
+20          return 
+21  
+22  class Notebook:
+23      def __init__(self):
+24          self.my_notes = []
+25  
+26      def addNote(self, memo_body, title_body, tags):
+27          my_note = Note(memo=memo_body, title=title_body, tags=tags)
+28          self.my_notes.append(my_note)
+29  
+30      def searchNote(self, filter):
+31          for note in self.my_notes:
+32              if note.match(filter):
+33                  return note
+\end{verbatim}
 \end{document}

@@ -1,6 +1,12 @@
 #+TITLE: Classes in Python
 #+AUTHOR: Aviik Chakraborty
 #+EMAIL: aviik.chakraborty@gmail
+#+LaTeX_HEADER: \usepackage{framed}
+#+LaTeX_HEADER: \usepackage{xcolor}
+#+LaTeX_HEADER: \definecolor{shadecolor}{gray}{.95}
+#+LaTeX_HEADER: \newenvironment{results}{\begin{shaded}}{\end{shaded}}
+#+OPTIONS: toc:nil
+
 
 
 * Classes
@@ -50,7 +56,10 @@ A basic representation of dinosaur could be,
 
 
 In Python this representation can be written as,
-#+BEGIN_SRC python
+
+
+#+BEGIN_SRC python 
+
 class Dinosaurs:
 ''' The dinosaur is a pre historic animal '''
     era = 1                      # Default value 1
@@ -68,6 +77,8 @@ class Dinosaurs:
         if self.era<243 and self.era>233.23:
             return True
 #+END_SRC
+
+
 
 This is actually how a Class in python is defined. But wait lets use it.
 
@@ -100,6 +111,7 @@ so dino_1 will have its own/unique set of era, name, locomotion, food habbits, e
 era, name, locomotion, etc. "Self" parameter here represents the instance itself. The naming convention suggests that we call the instance self rather than tom, harry, or some_instance although that can be done. Some more naming conventions. Class names should start with a capital letter or Camel cased. Avoid underscores for class names. Generally class names are plurals. Good class names are Students(), ObsoleteAccounts(), ProgramErrors(). Variables inside classes are called attributes and functions are called methods. So now these instances of Dinosaurs() can be represented as,
 
 [[./img/dino_uml_empty.jpg]]
+
 
 Now look those values that has replaced the   tributes. Looks like a big mess. So much so for Object Oriented Programming. This looks like a mockery and a waste of precious time. But its not what it looks like here the attribute values can be over-written for each individual instances.
 #+BEGIN_SRC python
@@ -142,7 +154,10 @@ print(dino_3.checkIfDinosaur())                         #Result: False
 
 Hence the representation of these tables have changed,
 
+
 [[./img/dino_uml.jpg]]
+
+
 The whole process may be given a GUI.
 
 #+CAPTION: This is a gui to insert dinosaur information to the computer.
@@ -152,10 +167,10 @@ The whole process may be given a GUI.
 Well while creating an instance what if we could place the values of era, name, locomotion, habitat, food_habbits,size and flight as a parameter it would spare us the extra time in gathering information one by one. One way of doing that is by initializing the instance as,
 
 #+BEGIN_SRC python
-dino_1 = Dinosaurs(234, "Tyranosorus rex", "walking", ["dinosaurs", "insects", "fishes"], ["grasslands"], 12, False) 
+dino_1 = Dinosaurs(234, "Tyranosorus rex", "walking", ["dinosaurs", "insects", "fishes"], ["grasslands"], 12, False)
 #+END_SRC
 
-This way whenever we press ok in the GUI shown in figure1 we end up creating an instace with the initiated values. Constructors are special class members which are called by the Python interpreter every time an object of that class is instantiated. A constructor of a class is actually a member function of the class its declared as: 
+This way whenever we press ok in the GUI shown in figure1 we end up creating an instace with the initiated values. Constructors are special class members which are called by the Python interpreter every time an object of that class is instantiated. A constructor of a class is actually a member function of the class its declared as:
 #+BEGIN_SRC python
 class Cowboys:
     def __init__():
@@ -164,7 +179,10 @@ class Cowboys:
 #+END_SRC
 
 Some more examples are:
+
+
 [[./img/cars_uml.jpg]] [[./img/fruits_uml.jpg]]
+
 
 
 Similiarly like a constructor there is a destrutor. Its use unlike the constructor is to destroy/delete an instance of the class. Its declared as:
@@ -210,3 +228,59 @@ Some examples
 
 
 [[./img/moped_class.jpg]]
+
+
+lets see some practical use of class in creating a notebook app. Where the user stores notes taken under different titles and also has an additional feature of applying tags to the notes. Notebooks have notes and notes have text, title, tags, date. A few methods we can assign to the Notebook are, search note(by tag, title), add new note, modify a note, show all notes.
+
+#+BEGIN_SRC ditaa :file ./img/notes.png
+
+ +---------------------+
+ |      Notebook       |                                           +---------------------+
+ +---------------------+                                           |        Note         |
+ | - notes:list        |                                           +---------------------+
+ |                     | 1                                    many | - title             |
+ +---------------------+<------------------------------------------+ - date              |
+ | + searchNote        |                                           | - text              |
+ |                     |                                           | - tag               |
+ | + modifyNote        |                                           +---------------------+
+ |                     |                                           | + searchFilter      |
+ | + addnote           |                                           |                     |
+ |                     |                                           +---------------------+
+ | + listNotes         |
+ +---------------------+
+ 
+#+END_SRC
+#+RESULTS:
+[[file:./img/notes.png]]
+
+
+This is an example of one to many relationship where a notebook can have multiple notes.
+
+#+BEGIN_SRC ditaa :file ./img/noteToNotesRelation.png
+ +--------------------------------------------------------------------------------------+
+ |  cRED Notebook                                                                       |
+ |  +-------+   +-------+   +--------+   +---------+    +----------+    +---------+     |
+ |  | note  |   | note  |   | note   |   |  note   |    | note     |    |  note   |     |
+ |  | {d}   |   |  {d}  |   |  {d}   |   |   {d}   |    |   {d}    |    |   {d}   |     |
+ |  |       |   |       |   |        |   |         |    |          |    |         |     |
+ |  +-------+   +-------+   +--------+   +---------+    +----------+    +---------+     |
+ |                                                                                      |
+ |                                                                                      |
+ +--------------------------------------------------------------------------------------+
+
+
+
+
+
+#+END_SRC
+
+#+RESULTS:
+[[file:./img/noteToNotesRelation.png]]
+
+
+#+INCLUDE: "./notebook.py" :lines "0-" src python -n
+
+
+Notebook is initialised as with an empty list. And when we use the Notebook.addNote(parameters here) feature we are creating a new Note with the parameters as values for content, title, tags and date.
+
+

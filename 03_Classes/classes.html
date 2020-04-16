@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-16 Thu 09:49 -->
+<!-- 2020-04-16 Thu 18:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Classes in Python</title>
@@ -230,18 +230,11 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Classes in Python</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org8583716">1. Classes</a></li>
-</ul>
-</div>
-</div>
 
 
-<div id="outline-container-org8583716" class="outline-2">
-<h2 id="org8583716"><span class="section-number-2">1</span> Classes</h2>
+
+<div id="outline-container-org2faac70" class="outline-2">
+<h2 id="org2faac70"><span class="section-number-2">1</span> Classes</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 One of the important reason why we are using Python today is because it is an Object Oriented Programming Language. And you might hear from time to time that everything in Python is an object. Lets see how i can make this mumbo jumbo a little bit more clear.
@@ -317,8 +310,11 @@ A basic representation of dinosaur could be,
 <p>
 In Python this representation can be written as,
 </p>
+
+
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Dinosaurs</span>:
+<pre class="src src-python">
+<span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Dinosaurs</span>:
 <span style="color: #ffa07a;">''' The dinosaur is a pre historic animal '''</span>
 <span style="background-color: #1a1a1a;"> </span>   <span style="color: #eedd82;">era</span> = 1                      <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">Default value 1</span>
 <span style="background-color: #1a1a1a;"> </span>   <span style="color: #eedd82;">name</span> = <span style="color: #ffa07a;">""</span>                    <span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">Empty String</span>
@@ -336,6 +332,8 @@ In Python this representation can be written as,
 <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> <span style="color: #7fffd4;">True</span>
 </pre>
 </div>
+
+
 
 <p>
 This is actually how a Class in python is defined. But wait lets use it.
@@ -383,6 +381,7 @@ era, name, locomotion, etc. "Self" parameter here represents the instance itself
 <p><img src="./img/dino_uml_empty.jpg" alt="dino_uml_empty.jpg" />
 </p>
 </div>
+
 
 <p>
 Now look those values that has replaced the   tributes. Looks like a big mess. So much so for Object Oriented Programming. This looks like a mockery and a waste of precious time. But its not what it looks like here the attribute values can be over-written for each individual instances.
@@ -433,16 +432,23 @@ Similiarly we can do the same treatment to the instances dino<sub>2</sub> and di
 Hence the representation of these tables have changed,
 </p>
 
+
+
+<div class="figure">
+<p><img src="./img/dino_uml.jpg" alt="dino_uml.jpg" />
+</p>
+</div>
+
+
 <p>
-<img src="./img/dino_uml.jpg" alt="dino_uml.jpg" />
 The whole process may be given a GUI.
 </p>
 
 
-<div id="org173a736" class="figure">
+<div id="orgbdeb007" class="figure">
 <p><img src="./img/dino_gui.png" alt="dino_gui.png" />
 </p>
-<p><span class="figure-number">Figure 2: </span>This is a gui to insert dinosaur information to the computer.</p>
+<p><span class="figure-number">Figure 3: </span>This is a gui to insert dinosaur information to the computer.</p>
 </div>
 
 <p>
@@ -450,12 +456,12 @@ Well while creating an instance what if we could place the values of era, name, 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #eedd82;">dino_1</span> = Dinosaurs(234, <span style="color: #ffa07a;">"Tyranosorus rex"</span>, <span style="color: #ffa07a;">"walking"</span>, [<span style="color: #ffa07a;">"dinosaurs"</span>, <span style="color: #ffa07a;">"insects"</span>, <span style="color: #ffa07a;">"fishes"</span>], [<span style="color: #ffa07a;">"grasslands"</span>], 12, <span style="color: #7fffd4;">False</span>) 
+<pre class="src src-python"><span style="color: #eedd82;">dino_1</span> = Dinosaurs(234, <span style="color: #ffa07a;">"Tyranosorus rex"</span>, <span style="color: #ffa07a;">"walking"</span>, [<span style="color: #ffa07a;">"dinosaurs"</span>, <span style="color: #ffa07a;">"insects"</span>, <span style="color: #ffa07a;">"fishes"</span>], [<span style="color: #ffa07a;">"grasslands"</span>], 12, <span style="color: #7fffd4;">False</span>)
 </pre>
 </div>
 
 <p>
-This way whenever we press ok in the GUI shown in figure1 we end up creating an instace with the initiated values. Constructors are special class members which are called by the Python interpreter every time an object of that class is instantiated. A constructor of a class is actually a member function of the class its declared as: 
+This way whenever we press ok in the GUI shown in figure1 we end up creating an instace with the initiated values. Constructors are special class members which are called by the Python interpreter every time an object of that class is instantiated. A constructor of a class is actually a member function of the class its declared as:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Cowboys</span>:
@@ -467,8 +473,13 @@ This way whenever we press ok in the GUI shown in figure1 we end up creating an 
 
 <p>
 Some more examples are:
+</p>
+
+
+<p>
 <img src="./img/cars_uml.jpg" alt="cars_uml.jpg" /> <img src="./img/fruits_uml.jpg" alt="fruits_uml.jpg" />
 </p>
+
 
 
 <p>
@@ -529,12 +540,78 @@ Some examples
 <p><img src="./img/moped_class.jpg" alt="moped_class.jpg" />
 </p>
 </div>
+
+
+<p>
+lets see some practical use of class in creating a notebook app. Where the user stores notes taken under different titles and also has an additional feature of applying tags to the notes. Notebooks have notes and notes have text, title, tags, date. A few methods we can assign to the Notebook are, search note(by tag, title), add new note, modify a note, show all notes.
+</p>
+
+
+<div class="figure">
+<p><img src="./img/notes.png" alt="notes.png" />
+</p>
+</div>
+
+
+<p>
+This is an example of one to many relationship where a notebook can have multiple notes.
+</p>
+
+
+<div class="figure">
+<p><img src="./img/noteToNotesRelation.png" alt="noteToNotesRelation.png" />
+</p>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #ff7f24;">#</span><span style="color: #ff7f24;">!/usr/bin/env python3</span>
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #00ffff;">from</span> datetime <span style="color: #00ffff;">import</span> datetime
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Note</span>:
+<span class="linenr"> 7: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__init__</span>(<span style="color: #00ffff;">self</span>, memo=<span style="color: #ffa07a;">""</span>, title=<span style="color: #ffa07a;">""</span>, tags=[]):
+<span class="linenr"> 8: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.memo = memo
+<span class="linenr"> 9: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.title = title
+<span class="linenr">10: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.tags = tags
+<span class="linenr">11: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.time_now = datetime.now()
+<span class="linenr">12: </span>
+<span class="linenr">13: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">match</span>(<span style="color: #00ffff;">self</span>, <span style="color: #b0c4de;">filter</span>):
+<span class="linenr">14: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> <span style="color: #b0c4de;">filter</span> <span style="color: #00ffff;">in</span> <span style="color: #00ffff;">self</span>.title <span style="color: #00ffff;">or</span> <span style="color: #b0c4de;">filter</span> <span style="color: #00ffff;">in</span> <span style="color: #00ffff;">self</span>.tags
+<span class="linenr">15: </span>
+<span class="linenr">16: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__del__</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">17: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> f<span style="color: #ffa07a;">'Note titled {self.title} created on {self.time_now} deleted!'</span>
+<span class="linenr">18: </span>
+<span class="linenr">19: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__repr__</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">20: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> 
+<span class="linenr">21: </span>
+<span class="linenr">22: </span><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Notebook</span>:
+<span class="linenr">23: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__init__</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">24: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.my_notes = []
+<span class="linenr">25: </span>
+<span class="linenr">26: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">addNote</span>(<span style="color: #00ffff;">self</span>, memo_body, title_body, tags):
+<span class="linenr">27: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #eedd82;">my_note</span> = Note(memo=memo_body, title=title_body, tags=tags)
+<span class="linenr">28: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.my_notes.append(my_note)
+<span class="linenr">29: </span>
+<span class="linenr">30: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">searchNote</span>(<span style="color: #00ffff;">self</span>, <span style="color: #b0c4de;">filter</span>):
+<span class="linenr">31: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">for</span> note <span style="color: #00ffff;">in</span> <span style="color: #00ffff;">self</span>.my_notes:
+<span class="linenr">32: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">if</span> note.match(<span style="color: #b0c4de;">filter</span>):
+<span class="linenr">33: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> note
+</pre>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-python">
+</pre>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Aviik Chakraborty</p>
-<p class="date">Created: 2020-04-16 Thu 09:49</p>
+<p class="date">Created: 2020-04-16 Thu 18:21</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
