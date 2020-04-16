@@ -162,6 +162,11 @@ class Cowboys:
 ''' This is the constructor '''
         pass
 #+END_SRC
+
+Some more examples are:
+[[./img/cars_uml.jpg]] [[./img/fruits_uml.jpg]]
+
+
 Similiarly like a constructor there is a destrutor. Its use unlike the constructor is to destroy/delete an instance of the class. Its declared as:
 #+BEGIN_SRC python
 class Cowboys:
@@ -200,3 +205,8 @@ dino_3 = Dinosaurs(234, "Ptarandon", "flying", ["insect", "fish"], ["mountains",
 
 del dino_2    # Deletes/destroys dino_2 instance
 #+END_SRC
+
+Some examples
+
+
+[[./img/moped_class.jpg]]
