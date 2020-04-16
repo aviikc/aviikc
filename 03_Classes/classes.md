@@ -229,7 +229,7 @@ We can model our Note class as,
 
 The Note class can be utilised by making instances like, 
 
-    1  # mynote = Note("dcgvbihlbyttv tdxcty tgiuib", "jibrish", ["nothing", "everything"])
+    1  mynote = Note("dcgvbihlbyttv tdxcty tgiuib", "jibrish", ["nothing", "everything"])
 
 Now Notebook is initialised as with an empty list. And when we use the Notebook.addNote(parameters here) feature we are creating a new Note with the parameters as values for content, title, tags and date. Lets see the new updated code.
 
@@ -270,10 +270,10 @@ Now Notebook is initialised as with an empty list. And when we use the Notebook.
 
 We can utilize this new class Notebook to collect as many notes as we want as long as we can provide the information for the parameters in the proper data format and in the proper order. Lets see how the utilization of this code can be done,
 
-    1  # my_notebook = Notebook()
-    2  # my_notebook.addNote("time to get grocery", "grocery", ["shopping", "grocery"])
-    3  # my_notebook.addNote("python class examples for sem4", "programming", ["python", "sem4"])
-    4  # my_notebook.addNote("learn shading in blender", "Shading in blender", ["blender", "shading"])
+    1  my_notebook = Notebook()
+    2  my_notebook.addNote("time to get grocery", "grocery", ["shopping", "grocery"])
+    3  my_notebook.addNote("python class examples for sem4", "programming", ["python", "sem4"])
+    4  my_notebook.addNote("learn shading in blender", "Shading in blender", ["blender", "shading"])
 
 We are definitely getting somewhere. But I bet typing those long addNote() functions are not so interesting. So lets add an interface to these two objects. This interface will prompt user for inputs, it will also show all the stored notes that we have. Also we will have options to search for notes and quit our beautiful application. Ofcourse we can add a few features to our interface like deleting a note, modifying the body of a note and modifying the title of a note trust me we will update our app to version 2.0 which will contain the features.
 
@@ -352,4 +352,118 @@ We are definitely getting somewhere. But I bet typing those long addNote() funct
 To execute the program just type,
 
     1  myApp = NotebookInterface()
+
+Here is a full v2.0 updated version of this program.
+
+      1  # !/usr/bin/env python3
+      2  
+      3  from datetime import datetime
+      4  
+      5  global count
+      6  count = 0
+      7  
+      8  
+      9  class Note:
+     10  
+     11      def __init__(self, memo="", title="", tags=[]):
+     12          self.memo = memo
+     13          self.title = title
+     14          self.tags = tags
+     15          self.time_now = datetime.now()
+     16          count += 1
+     17          self.note_id = count
+     18  
+     19      def match(self, filter):
+     20          return filter in self.title or filter in self.tags
+     21  
+     22      def __del__(self):
+     23          return f'Note titled {self.title} created on {self.time_now} deleted!'
+     24  
+     25      def __repr__(self):
+     26          return f'{self.title} created at {self.time_now} with id: {self.note_id}'
+     27  
+     28  
+     29  class Notebook:
+     30      def __init__(self):
+     31          self.my_notes = []
+     32  
+     33      def addNote(self, memo_body, title_body, tags):
+     34          my_note = Note(memo=memo_body, title=title_body, tags=tags)
+     35          self.my_notes.append(my_note)
+     36  
+     37      def searchNote(self, filter):
+     38          for note in self.my_notes:
+     39              if note.match(filter):
+     40                  return note
+     41  
+     42      def modifyNoteContent(self, noteId, new_content):
+     43          for note in self.my_notes:
+     44              if note.note_id == noteId:
+     45                  note.memo = new_content
+     46                  break
+     47  
+     48      def modifyNoteTitle(self, noteId, new_title):
+     49          for note in self.my_notes:
+     50              if note.note_id == noteId:
+     51                  note.title = new_title
+     52                  break
+     53  
+     54      def delNote(self, noteId):
+     55          for note in self.my_notes:
+     56              if note.note_id == noteId:
+     57                  self.my_notes.remove(note)
+     58                  del note
+     59                  break
+     60  
+     61  
+     62  class NotebookInterface:
+     63      def __init__(self):
+     64          self.my_notebook = Notebook()
+     65          self.menu()
+     66  
+     67      def menu(self):
+     68          print('''
+     69          1. Add Note
+     70          2. Search Note
+     71          3. Modify Content
+     72          4. Modify Title
+     73          5. List all notes
+     74          6. Quit Program
+     75          ''')
+     76          self.run()
+     77  
+     78      def run(self):
+     79          while True:
+     80              choice = input("Enter Choice: ")
+     81              if choice == "1":
+     82                  memo = input("Enter the content: ")
+     83                  title = input("Enter a Title: ")
+     84                  tags = input("Enter tags seperated by commas: ").strip().split(",")
+     85                  self.my_notebook.addNote(memo, title, tags)
+     86                  continue
+     87              elif choice == "2":
+     88                  current_filter = input("Enter an indentifiable tag or title: ")
+     89                  self.my_notebook.searchNote(current_filter)
+     90                  continue
+     91              elif choice == "3":
+     92                  n_id = int(input("Enter Note Id: "))
+     93                  memo = input("Enter the content: ")
+     94                  self.my_notebook.modifyNoteContent(n_id, memo)
+     95                  continue
+     96              elif choice == "4":
+     97                  n_id = int(input("Enter Note Id: "))
+     98                  titl = input("Enter the Title: ")
+     99                  self.my_notebook.modifyNoteTitle(n_id, titl)
+    100                  continue
+    101              elif choice == "5":
+    102                  for note in self.my_notebook.my_notes:
+    103                      print(f'{note.note_id}-{note.title} created on {note.time_now}')
+    104                  continue
+    105              elif choice == "6":
+    106                  break
+    107              else:
+    108                  print("Enter a valid choice.")
+    109                  continue
+    110  
+    111  myApp = NotebookInterface()
 

@@ -2,13 +2,19 @@
 
 from datetime import datetime
 
+global count
+count = 0
+
 
 class Note:
+
     def __init__(self, memo="", title="", tags=[]):
         self.memo = memo
         self.title = title
         self.tags = tags
         self.time_now = datetime.now()
+        count += 1
+        self.note_id = count
 
     def match(self, filter):
         return filter in self.title or filter in self.tags
@@ -17,7 +23,7 @@ class Note:
         return f'Note titled {self.title} created on {self.time_now} deleted!'
 
     def __repr__(self):
-        return f'{self.title} created at {self.time_now}'
+        return f'{self.title} created at {self.time_now} with id: {self.note_id}'
 
 
 class Notebook:
@@ -33,6 +39,25 @@ class Notebook:
             if note.match(filter):
                 return note
 
+    def modifyNoteContent(self, noteId, new_content):
+        for note in self.my_notes:
+            if note.note_id == noteId:
+                note.memo = new_content
+                break
+
+    def modifyNoteTitle(self, noteId, new_title):
+        for note in self.my_notes:
+            if note.note_id == noteId:
+                note.title = new_title
+                break
+
+    def delNote(self, noteId):
+        for note in self.my_notes:
+            if note.note_id == noteId:
+                self.my_notes.remove(note)
+                del note
+                break
+
 
 class NotebookInterface:
     def __init__(self):
@@ -43,8 +68,10 @@ class NotebookInterface:
         print('''
         1. Add Note
         2. Search Note
-        3. List all notes
-        4. Quit Program
+        3. Modify Content
+        4. Modify Title
+        5. List all notes
+        6. Quit Program
         ''')
         self.run()
         
@@ -62,21 +89,24 @@ class NotebookInterface:
                 self.my_notebook.searchNote(current_filter)
                 continue
             elif choice == "3":
-                for note in self.my_notebook.my_notes:
-                    print(f'{note.title} created on {note.time_now}')
+                n_id = int(input("Enter Note Id: "))
+                memo = input("Enter the content: ")
+                self.my_notebook.modifyNoteContent(n_id, memo)
                 continue
             elif choice == "4":
+                n_id = int(input("Enter Note Id: "))
+                titl = input("Enter the Title: ")
+                self.my_notebook.modifyNoteTitle(n_id, titl)
+                continue
+            elif choice == "5":
+                for note in self.my_notebook.my_notes:
+                    print(f'{note.note_id}-{note.title} created on {note.time_now}')
+                continue
+            elif choice == "6":
                 break
             else:
                 print("Enter a valid choice.")
                 continue
 
- mynote = Note("dcgvbihlbyttv tdxcty tgiuib", "jibrish", ["nothing", "everything"])
- print(mynote)
- my_notebook = Notebook()
- my_notebook.addNote("time to get grocery", "grocery", ["shopping", "grocery"])
- my_notebook.addNote("python class examples for sem4", "programming", ["python", "sem4"])
- my_notebook.addNote("learn shading in blender", "Shading in blender", ["blender", "shading"])
- print(my_notebook.searchNote("blender"))
 myApp = NotebookInterface()
 

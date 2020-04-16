@@ -303,4 +303,6 @@ To execute the program just type,
 #+INCLUDE: "./notebook.py" :lines "81-" src python -n
 
 
+Here is a full v2.0 updated version of this program.
 
+#+INCLUDE: "./notebook_v2.py" :lines "0-" src python -n
