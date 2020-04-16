@@ -1,4 +1,4 @@
-% Created 2020-04-16 Thu 18:24
+% Created 2020-04-16 Thu 23:15
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -35,7 +35,7 @@
 
 
 \section{Classes}
-\label{sec:org85fa35d}
+\label{sec:org5454d66}
 
 One of the important reason why we are using Python today is because it is an Object Oriented Programming Language. And you might hear from time to time that everything in Python is an object. Lets see how i can make this mumbo jumbo a little bit more clear.
 
@@ -201,7 +201,7 @@ The whole process may be given a GUI.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{./img/dino_gui.png}
-\caption{\label{fig:org8d9c2a3}
+\caption{\label{fig:orgd726d04}
 This is a gui to insert dinosaur information to the computer.}
 \end{figure}
 
@@ -291,8 +291,10 @@ This is an example of one to many relationship where a notebook can have multipl
 \end{center}
 
 
+We can model our Note class as,
+
 \begin{verbatim}
- 1  #!/usr/bin/env python3
+ 1  # !/usr/bin/env python3
  2  
  3  from datetime import datetime
  4  
@@ -311,19 +313,142 @@ This is an example of one to many relationship where a notebook can have multipl
 17          return f'Note titled {self.title} created on {self.time_now} deleted!'
 18  
 19      def __repr__(self):
-20          return 
+20          return f'{self.title} created at {self.time_now}'
+\end{verbatim}
+
+The Note class can be utilised by making instances like, 
+
+\begin{verbatim}
+1  # mynote = Note("dcgvbihlbyttv tdxcty tgiuib", "jibrish", ["nothing", "everything"])
+\end{verbatim}
+
+Now Notebook is initialised as with an empty list. And when we use the Notebook.addNote(parameters here) feature we are creating a new Note with the parameters as values for content, title, tags and date. Lets see the new updated code.
+
+\begin{verbatim}
+ 1  # !/usr/bin/env python3
+ 2  
+ 3  from datetime import datetime
+ 4  
+ 5  
+ 6  class Note:
+ 7      def __init__(self, memo="", title="", tags=[]):
+ 8          self.memo = memo
+ 9          self.title = title
+10          self.tags = tags
+11          self.time_now = datetime.now()
+12  
+13      def match(self, filter):
+14          return filter in self.title or filter in self.tags
+15  
+16      def __del__(self):
+17          return f'Note titled {self.title} created on {self.time_now} deleted!'
+18  
+19      def __repr__(self):
+20          return f'{self.title} created at {self.time_now}'
 21  
-22  class Notebook:
-23      def __init__(self):
-24          self.my_notes = []
-25  
-26      def addNote(self, memo_body, title_body, tags):
-27          my_note = Note(memo=memo_body, title=title_body, tags=tags)
-28          self.my_notes.append(my_note)
-29  
-30      def searchNote(self, filter):
-31          for note in self.my_notes:
-32              if note.match(filter):
-33                  return note
+22  
+23  class Notebook:
+24      def __init__(self):
+25          self.my_notes = []
+26  
+27      def addNote(self, memo_body, title_body, tags):
+28          my_note = Note(memo=memo_body, title=title_body, tags=tags)
+29          self.my_notes.append(my_note)
+30  
+31      def searchNote(self, filter):
+32          for note in self.my_notes:
+33              if note.match(filter):
+34                  return note
+\end{verbatim}
+
+We can utilize this new class Notebook to collect as many notes as we want as long as we can provide the information for the parameters in the proper data format and in the proper order. Lets see how the utilization of this code can be done,
+
+\begin{verbatim}
+1  # my_notebook = Notebook()
+2  # my_notebook.addNote("time to get grocery", "grocery", ["shopping", "grocery"])
+3  # my_notebook.addNote("python class examples for sem4", "programming", ["python", "sem4"])
+4  # my_notebook.addNote("learn shading in blender", "Shading in blender", ["blender", "shading"])
+\end{verbatim}
+
+We are definitely getting somewhere. But I bet typing those long addNote() functions are not so interesting. So lets add an interface to these two objects. This interface will prompt user for inputs, it will also show all the stored notes that we have. Also we will have options to search for notes and quit our beautiful application. Ofcourse we can add a few features to our interface like deleting a note, modifying the body of a note and modifying the title of a note trust me we will update our app to version 2.0 which will contain the features.
+
+\begin{verbatim}
+ 1  # !/usr/bin/env python3
+ 2  
+ 3  from datetime import datetime
+ 4  
+ 5  
+ 6  class Note:
+ 7      def __init__(self, memo="", title="", tags=[]):
+ 8          self.memo = memo
+ 9          self.title = title
+10          self.tags = tags
+11          self.time_now = datetime.now()
+12  
+13      def match(self, filter):
+14          return filter in self.title or filter in self.tags
+15  
+16      def __del__(self):
+17          return f'Note titled {self.title} created on {self.time_now} deleted!'
+18  
+19      def __repr__(self):
+20          return f'{self.title} created at {self.time_now}'
+21  
+22  
+23  class Notebook:
+24      def __init__(self):
+25          self.my_notes = []
+26  
+27      def addNote(self, memo_body, title_body, tags):
+28          my_note = Note(memo=memo_body, title=title_body, tags=tags)
+29          self.my_notes.append(my_note)
+30  
+31      def searchNote(self, filter):
+32          for note in self.my_notes:
+33              if note.match(filter):
+34                  return note
+35  
+36  
+37  class NotebookInterface:
+38      def __init__(self):
+39          self.my_notebook = Notebook()
+40          self.menu()
+41  
+42      def menu(self):
+43          print('''
+44          1. Add Note
+45          2. Search Note
+46          3. List all notes
+47          4. Quit Program
+48          ''')
+49          self.run()
+50  
+51      def run(self):
+52          while True:
+53              choice = input("Enter Choice: ")
+54              if choice == "1":
+55                  memo = input("Enter the content: ")
+56                  title = input("Enter a Title: ")
+57                  tags = input("Enter tags seperated by commas: ").strip().split(",")
+58                  self.my_notebook.addNote(memo, title, tags)
+59                  continue
+60              elif choice == "2":
+61                  current_filter = input("Enter an indentifiable tag or title: ")
+62                  self.my_notebook.searchNote(current_filter)
+63                  continue
+64              elif choice == "3":
+65                  for note in self.my_notebook.my_notes:
+66                      print(f'{note.title} created on {note.time_now}')
+67                  continue
+68              elif choice == "4":
+69                  break
+70              else:
+71                  print("Enter a valid choice.")
+\end{verbatim}
+
+To execute the program just type,
+
+\begin{verbatim}
+1  myApp = NotebookInterface()
 \end{verbatim}
 \end{document}

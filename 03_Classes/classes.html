@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-16 Thu 18:21 -->
+<!-- 2020-04-16 Thu 23:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Classes in Python</title>
@@ -233,8 +233,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org2faac70" class="outline-2">
-<h2 id="org2faac70"><span class="section-number-2">1</span> Classes</h2>
+<div id="outline-container-org60adc42" class="outline-2">
+<h2 id="org60adc42"><span class="section-number-2">1</span> Classes</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 One of the important reason why we are using Python today is because it is an Object Oriented Programming Language. And you might hear from time to time that everything in Python is an object. Lets see how i can make this mumbo jumbo a little bit more clear.
@@ -445,7 +445,7 @@ The whole process may be given a GUI.
 </p>
 
 
-<div id="orgbdeb007" class="figure">
+<div id="org9c8aacb" class="figure">
 <p><img src="./img/dino_gui.png" alt="dino_gui.png" />
 </p>
 <p><span class="figure-number">Figure 3: </span>This is a gui to insert dinosaur information to the computer.</p>
@@ -564,8 +564,12 @@ This is an example of one to many relationship where a notebook can have multipl
 </div>
 
 
+<p>
+We can model our Note class as,
+</p>
+
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #ff7f24;">#</span><span style="color: #ff7f24;">!/usr/bin/env python3</span>
+<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">!/usr/bin/env python3</span>
 <span class="linenr"> 2: </span>
 <span class="linenr"> 3: </span><span style="color: #00ffff;">from</span> datetime <span style="color: #00ffff;">import</span> datetime
 <span class="linenr"> 4: </span>
@@ -584,26 +588,158 @@ This is an example of one to many relationship where a notebook can have multipl
 <span class="linenr">17: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> f<span style="color: #ffa07a;">'Note titled {self.title} created on {self.time_now} deleted!'</span>
 <span class="linenr">18: </span>
 <span class="linenr">19: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__repr__</span>(<span style="color: #00ffff;">self</span>):
-<span class="linenr">20: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> 
-<span class="linenr">21: </span>
-<span class="linenr">22: </span><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Notebook</span>:
-<span class="linenr">23: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__init__</span>(<span style="color: #00ffff;">self</span>):
-<span class="linenr">24: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.my_notes = []
-<span class="linenr">25: </span>
-<span class="linenr">26: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">addNote</span>(<span style="color: #00ffff;">self</span>, memo_body, title_body, tags):
-<span class="linenr">27: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #eedd82;">my_note</span> = Note(memo=memo_body, title=title_body, tags=tags)
-<span class="linenr">28: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.my_notes.append(my_note)
-<span class="linenr">29: </span>
-<span class="linenr">30: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">searchNote</span>(<span style="color: #00ffff;">self</span>, <span style="color: #b0c4de;">filter</span>):
-<span class="linenr">31: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">for</span> note <span style="color: #00ffff;">in</span> <span style="color: #00ffff;">self</span>.my_notes:
-<span class="linenr">32: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">if</span> note.match(<span style="color: #b0c4de;">filter</span>):
-<span class="linenr">33: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> note
+<span class="linenr">20: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> f<span style="color: #ffa07a;">'{self.title} created at {self.time_now}'</span>
 </pre>
 </div>
 
+<p>
+The Note class can be utilised by making instances like, 
+</p>
 
 <div class="org-src-container">
-<pre class="src src-python">
+<pre class="src src-python"><span class="linenr">1: </span><span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">mynote = Note("dcgvbihlbyttv tdxcty tgiuib", "jibrish", ["nothing", "everything"])</span>
+</pre>
+</div>
+
+<p>
+Now Notebook is initialised as with an empty list. And when we use the Notebook.addNote(parameters here) feature we are creating a new Note with the parameters as values for content, title, tags and date. Lets see the new updated code.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">!/usr/bin/env python3</span>
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #00ffff;">from</span> datetime <span style="color: #00ffff;">import</span> datetime
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Note</span>:
+<span class="linenr"> 7: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__init__</span>(<span style="color: #00ffff;">self</span>, memo=<span style="color: #ffa07a;">""</span>, title=<span style="color: #ffa07a;">""</span>, tags=[]):
+<span class="linenr"> 8: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.memo = memo
+<span class="linenr"> 9: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.title = title
+<span class="linenr">10: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.tags = tags
+<span class="linenr">11: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.time_now = datetime.now()
+<span class="linenr">12: </span>
+<span class="linenr">13: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">match</span>(<span style="color: #00ffff;">self</span>, <span style="color: #b0c4de;">filter</span>):
+<span class="linenr">14: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> <span style="color: #b0c4de;">filter</span> <span style="color: #00ffff;">in</span> <span style="color: #00ffff;">self</span>.title <span style="color: #00ffff;">or</span> <span style="color: #b0c4de;">filter</span> <span style="color: #00ffff;">in</span> <span style="color: #00ffff;">self</span>.tags
+<span class="linenr">15: </span>
+<span class="linenr">16: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__del__</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">17: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> f<span style="color: #ffa07a;">'Note titled {self.title} created on {self.time_now} deleted!'</span>
+<span class="linenr">18: </span>
+<span class="linenr">19: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__repr__</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">20: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> f<span style="color: #ffa07a;">'{self.title} created at {self.time_now}'</span>
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>
+<span class="linenr">23: </span><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Notebook</span>:
+<span class="linenr">24: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__init__</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">25: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.my_notes = []
+<span class="linenr">26: </span>
+<span class="linenr">27: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">addNote</span>(<span style="color: #00ffff;">self</span>, memo_body, title_body, tags):
+<span class="linenr">28: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #eedd82;">my_note</span> = Note(memo=memo_body, title=title_body, tags=tags)
+<span class="linenr">29: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.my_notes.append(my_note)
+<span class="linenr">30: </span>
+<span class="linenr">31: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">searchNote</span>(<span style="color: #00ffff;">self</span>, <span style="color: #b0c4de;">filter</span>):
+<span class="linenr">32: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">for</span> note <span style="color: #00ffff;">in</span> <span style="color: #00ffff;">self</span>.my_notes:
+<span class="linenr">33: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">if</span> note.match(<span style="color: #b0c4de;">filter</span>):
+<span class="linenr">34: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> note
+</pre>
+</div>
+
+<p>
+We can utilize this new class Notebook to collect as many notes as we want as long as we can provide the information for the parameters in the proper data format and in the proper order. Lets see how the utilization of this code can be done,
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr">1: </span><span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">my_notebook = Notebook()</span>
+<span class="linenr">2: </span><span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">my_notebook.addNote("time to get grocery", "grocery", ["shopping", "grocery"])</span>
+<span class="linenr">3: </span><span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">my_notebook.addNote("python class examples for sem4", "programming", ["python", "sem4"])</span>
+<span class="linenr">4: </span><span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">my_notebook.addNote("learn shading in blender", "Shading in blender", ["blender", "shading"])</span>
+</pre>
+</div>
+
+<p>
+We are definitely getting somewhere. But I bet typing those long addNote() functions are not so interesting. So lets add an interface to these two objects. This interface will prompt user for inputs, it will also show all the stored notes that we have. Also we will have options to search for notes and quit our beautiful application. Ofcourse we can add a few features to our interface like deleting a note, modifying the body of a note and modifying the title of a note trust me we will update our app to version 2.0 which will contain the features.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">!/usr/bin/env python3</span>
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #00ffff;">from</span> datetime <span style="color: #00ffff;">import</span> datetime
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Note</span>:
+<span class="linenr"> 7: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__init__</span>(<span style="color: #00ffff;">self</span>, memo=<span style="color: #ffa07a;">""</span>, title=<span style="color: #ffa07a;">""</span>, tags=[]):
+<span class="linenr"> 8: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.memo = memo
+<span class="linenr"> 9: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.title = title
+<span class="linenr">10: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.tags = tags
+<span class="linenr">11: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.time_now = datetime.now()
+<span class="linenr">12: </span>
+<span class="linenr">13: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">match</span>(<span style="color: #00ffff;">self</span>, <span style="color: #b0c4de;">filter</span>):
+<span class="linenr">14: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> <span style="color: #b0c4de;">filter</span> <span style="color: #00ffff;">in</span> <span style="color: #00ffff;">self</span>.title <span style="color: #00ffff;">or</span> <span style="color: #b0c4de;">filter</span> <span style="color: #00ffff;">in</span> <span style="color: #00ffff;">self</span>.tags
+<span class="linenr">15: </span>
+<span class="linenr">16: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__del__</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">17: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> f<span style="color: #ffa07a;">'Note titled {self.title} created on {self.time_now} deleted!'</span>
+<span class="linenr">18: </span>
+<span class="linenr">19: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__repr__</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">20: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> f<span style="color: #ffa07a;">'{self.title} created at {self.time_now}'</span>
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>
+<span class="linenr">23: </span><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">Notebook</span>:
+<span class="linenr">24: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__init__</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">25: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.my_notes = []
+<span class="linenr">26: </span>
+<span class="linenr">27: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">addNote</span>(<span style="color: #00ffff;">self</span>, memo_body, title_body, tags):
+<span class="linenr">28: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #eedd82;">my_note</span> = Note(memo=memo_body, title=title_body, tags=tags)
+<span class="linenr">29: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.my_notes.append(my_note)
+<span class="linenr">30: </span>
+<span class="linenr">31: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">searchNote</span>(<span style="color: #00ffff;">self</span>, <span style="color: #b0c4de;">filter</span>):
+<span class="linenr">32: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">for</span> note <span style="color: #00ffff;">in</span> <span style="color: #00ffff;">self</span>.my_notes:
+<span class="linenr">33: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">if</span> note.match(<span style="color: #b0c4de;">filter</span>):
+<span class="linenr">34: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">return</span> note
+<span class="linenr">35: </span>
+<span class="linenr">36: </span>
+<span class="linenr">37: </span><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">NotebookInterface</span>:
+<span class="linenr">38: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">__init__</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">39: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.my_notebook = Notebook()
+<span class="linenr">40: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.menu()
+<span class="linenr">41: </span>
+<span class="linenr">42: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">menu</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">43: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">print</span>(<span style="color: #ffa07a;">'''</span>
+<span class="linenr">44: </span><span style="color: #ffa07a; background-color: #1a1a1a;"> </span><span style="color: #ffa07a;">   </span><span style="color: #ffa07a; background-color: #1a1a1a;"> </span><span style="color: #ffa07a;">   1. Add Note</span>
+<span class="linenr">45: </span><span style="color: #ffa07a; background-color: #1a1a1a;"> </span><span style="color: #ffa07a;">   </span><span style="color: #ffa07a; background-color: #1a1a1a;"> </span><span style="color: #ffa07a;">   2. Search Note</span>
+<span class="linenr">46: </span><span style="color: #ffa07a; background-color: #1a1a1a;"> </span><span style="color: #ffa07a;">   </span><span style="color: #ffa07a; background-color: #1a1a1a;"> </span><span style="color: #ffa07a;">   3. List all notes</span>
+<span class="linenr">47: </span><span style="color: #ffa07a; background-color: #1a1a1a;"> </span><span style="color: #ffa07a;">   </span><span style="color: #ffa07a; background-color: #1a1a1a;"> </span><span style="color: #ffa07a;">   4. Quit Program</span>
+<span class="linenr">48: </span><span style="color: #ffa07a; background-color: #1a1a1a;"> </span><span style="color: #ffa07a;">   </span><span style="color: #ffa07a; background-color: #1a1a1a;"> </span><span style="color: #ffa07a;">   '''</span>)
+<span class="linenr">49: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.run()
+<span class="linenr">50: </span>
+<span class="linenr">51: </span><span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">def</span> <span style="color: #87cefa;">run</span>(<span style="color: #00ffff;">self</span>):
+<span class="linenr">52: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">while</span> <span style="color: #7fffd4;">True</span>:
+<span class="linenr">53: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #eedd82;">choice</span> = <span style="color: #b0c4de;">input</span>(<span style="color: #ffa07a;">"Enter Choice: "</span>)
+<span class="linenr">54: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">if</span> choice == <span style="color: #ffa07a;">"1"</span>:
+<span class="linenr">55: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #eedd82;">memo</span> = <span style="color: #b0c4de;">input</span>(<span style="color: #ffa07a;">"Enter the content: "</span>)
+<span class="linenr">56: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #eedd82;">title</span> = <span style="color: #b0c4de;">input</span>(<span style="color: #ffa07a;">"Enter a Title: "</span>)
+<span class="linenr">57: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #eedd82;">tags</span> = <span style="color: #b0c4de;">input</span>(<span style="color: #ffa07a;">"Enter tags seperated by commas: "</span>).strip().split(<span style="color: #ffa07a;">","</span>)
+<span class="linenr">58: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.my_notebook.addNote(memo, title, tags)
+<span class="linenr">59: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">continue</span>
+<span class="linenr">60: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">elif</span> choice == <span style="color: #ffa07a;">"2"</span>:
+<span class="linenr">61: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #eedd82;">current_filter</span> = <span style="color: #b0c4de;">input</span>(<span style="color: #ffa07a;">"Enter an indentifiable tag or title: "</span>)
+<span class="linenr">62: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">self</span>.my_notebook.searchNote(current_filter)
+<span class="linenr">63: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">continue</span>
+<span class="linenr">64: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">elif</span> choice == <span style="color: #ffa07a;">"3"</span>:
+<span class="linenr">65: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">for</span> note <span style="color: #00ffff;">in</span> <span style="color: #00ffff;">self</span>.my_notebook.my_notes:
+<span class="linenr">66: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">print</span>(f<span style="color: #ffa07a;">'{note.title} created on {note.time_now}'</span>)
+<span class="linenr">67: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">continue</span>
+<span class="linenr">68: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">elif</span> choice == <span style="color: #ffa07a;">"4"</span>:
+<span class="linenr">69: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">break</span>
+<span class="linenr">70: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">else</span>:
+<span class="linenr">71: </span><span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="background-color: #1a1a1a;"> </span>   <span style="color: #00ffff;">print</span>(<span style="color: #ffa07a;">"Enter a valid choice."</span>)
+</pre>
+</div>
+
+<p>
+To execute the program just type,
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="linenr">1: </span><span style="color: #eedd82;">myApp</span> = NotebookInterface()
 </pre>
 </div>
 </div>
@@ -611,7 +747,7 @@ This is an example of one to many relationship where a notebook can have multipl
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Aviik Chakraborty</p>
-<p class="date">Created: 2020-04-16 Thu 18:21</p>
+<p class="date">Created: 2020-04-16 Thu 23:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

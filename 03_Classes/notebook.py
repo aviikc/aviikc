@@ -1,7 +1,4 @@
-'''
-for mac and linux remove the tripple inverted commas
 # !/usr/bin/env python3
-'''
 
 from datetime import datetime
 
@@ -35,6 +32,7 @@ class Notebook:
         for note in self.my_notes:
             if note.match(filter):
                 return note
+
 
 class NotebookInterface:
     def __init__(self):

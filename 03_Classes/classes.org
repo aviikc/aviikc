@@ -278,9 +278,29 @@ This is an example of one to many relationship where a notebook can have multipl
 [[file:./img/noteToNotesRelation.png]]
 
 
-#+INCLUDE: "./notebook.py" :lines "0-" src python -n
+We can model our Note class as,
 
+#+INCLUDE: "./notebook.py" :lines "0-21" src python -n
 
-Notebook is initialised as with an empty list. And when we use the Notebook.addNote(parameters here) feature we are creating a new Note with the parameters as values for content, title, tags and date.
+The Note class can be utilised by making instances like, 
+
+#+INCLUDE: "./notebook.py" :lines "74-75" src python -n
+
+Now Notebook is initialised as with an empty list. And when we use the Notebook.addNote(parameters here) feature we are creating a new Note with the parameters as values for content, title, tags and date. Lets see the new updated code.
+
+#+INCLUDE: "./notebook.py" :lines "0-35" src python -n
+
+We can utilize this new class Notebook to collect as many notes as we want as long as we can provide the information for the parameters in the proper data format and in the proper order. Lets see how the utilization of this code can be done,
+
+#+INCLUDE: "./notebook.py" :lines "76-80" src python -n
+
+We are definitely getting somewhere. But I bet typing those long addNote() functions are not so interesting. So lets add an interface to these two objects. This interface will prompt user for inputs, it will also show all the stored notes that we have. Also we will have options to search for notes and quit our beautiful application. Ofcourse we can add a few features to our interface like deleting a note, modifying the body of a note and modifying the title of a note trust me we will update our app to version 2.0 which will contain the features.
+
+#+INCLUDE: "./notebook.py" :lines "0-72" src python -n
+
+To execute the program just type,
+
+#+INCLUDE: "./notebook.py" :lines "81-" src python -n
+
 
 
