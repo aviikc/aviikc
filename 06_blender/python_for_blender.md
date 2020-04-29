@@ -1,27 +1,27 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#org612a887)
-    1.  [bpy.ops](#orgdc71aad)
-        1.  [Circle](#org52db228)
-        2.  [Sphere (Ico-sphere)](#orgd1438b6)
-    2.  [bpy.context](#org86659a6)
-    3.  [bpy.types](#org637321a)
-    4.  [bpy.data](#orgbcbc45f)
+1.  [The BPY Module](#org81b116e)
+    1.  [bpy.ops](#org2d2a594)
+        1.  [Circle](#orgb5d89ae)
+        2.  [Sphere (Ico-sphere)](#org1a5193a)
+    2.  [bpy.context](#org2b3bbb4)
+    3.  [bpy.types](#orgc886d04)
+    4.  [bpy.data](#org7c390cf)
 
 
 
-<a id="org612a887"></a>
+<a id="org81b116e"></a>
 
 # The BPY Module
 
 
-<a id="orgdc71aad"></a>
+<a id="org2d2a594"></a>
 
 ## bpy.ops
 
 
-<a id="org52db228"></a>
+<a id="orgb5d89ae"></a>
 
 ### Circle
 
@@ -35,30 +35,30 @@ parameters
 -   location=(0.0, 0.0, 0.0)
 -   rotation=(0.0, 0.0, 0.0)
 
-    import bpy    #imports the bpy library in BLENDER
-    
+    import bpy                                               #imports the bpy library in BLENDER
     
     bpy.ops.mesh.primitive_circle_add(radius=1,
                                       vertices = 20,
                                       location=(0,4,0))
 
 
-<a id="orgd1438b6"></a>
+<a id="org1a5193a"></a>
 
 ### Sphere (Ico-sphere)
 
-    import bpy    #imports the bpy library in BLENDER
-    - bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3,
-                                            radius=4,
-                                            location=(2,7,8))
+    import bpy                                                #imports the bpy library in BLENDER
+    bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3,
+                                          radius=4,
+                                          location=(2,7,8)
+                                          rotation=(0,0,0))
 
 
-<a id="org86659a6"></a>
+<a id="org2b3bbb4"></a>
 
 ## bpy.context
 
 
-<a id="org637321a"></a>
+<a id="orgc886d04"></a>
 
 ## bpy.types
 
@@ -66,7 +66,7 @@ parameters
 -   panel
 
 
-<a id="orgbcbc45f"></a>
+<a id="org7c390cf"></a>
 
 ## bpy.data
 
