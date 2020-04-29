@@ -1,0 +1,11 @@
+1.) Write a Python class to convert an integer to a roman numeral.
+
+2.) Create a Object oriented Design for a shopping cart allowing customers the following fecilities: Each product should have serial number, name, quantity and rate.
+
+	a.) Add Item
+	b.) Modify Quantity
+	c.) Remove Item
+	d.) List Shopping Cart Items
+	e.) Check Out
+	f.) Quit Application
+ 
