@@ -1,31 +1,35 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#org81b116e)
-    1.  [bpy.ops](#org2d2a594)
-        1.  [Circle](#orgb5d89ae)
-        2.  [Sphere (Ico-sphere)](#org1a5193a)
-    2.  [bpy.context](#org2b3bbb4)
-    3.  [bpy.types](#orgc886d04)
-    4.  [bpy.data](#org7c390cf)
+1.  [The BPY Module](#org8c18038)
+    1.  [bpy.ops](#org5f48d04)
+        1.  [Circle](#orge165520)
+        2.  [Sphere (Ico-sphere)](#org666a089)
+    2.  [bpy.context](#org3e022f1)
+    3.  [bpy.types](#org20bb139)
+    4.  [bpy.data](#org58bccad)
 
 
 
-<a id="org81b116e"></a>
+<a id="org8c18038"></a>
 
 # The BPY Module
 
 
-<a id="org2d2a594"></a>
+<a id="org5f48d04"></a>
 
 ## bpy.ops
 
 
-<a id="orgb5d89ae"></a>
+<a id="orge165520"></a>
 
 ### Circle
 
--   bpy.ops.mesh.primitive<sub>circle</sub><sub>add</sub>()
+    import bpy                                               #imports the bpy library in BLENDER
+    
+    bpy.ops.mesh.primitive_circle_add(radius=1,
+                                      vertices = 20,
+                                      location=(0,4,0))
 
 [Circle Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 parameters
@@ -35,14 +39,8 @@ parameters
 -   location=(0.0, 0.0, 0.0)
 -   rotation=(0.0, 0.0, 0.0)
 
-    import bpy                                               #imports the bpy library in BLENDER
-    
-    bpy.ops.mesh.primitive_circle_add(radius=1,
-                                      vertices = 20,
-                                      location=(0,4,0))
 
-
-<a id="org1a5193a"></a>
+<a id="org666a089"></a>
 
 ### Sphere (Ico-sphere)
 
@@ -53,12 +51,12 @@ parameters
                                           rotation=(0,0,0))
 
 
-<a id="org2b3bbb4"></a>
+<a id="org3e022f1"></a>
 
 ## bpy.context
 
 
-<a id="orgc886d04"></a>
+<a id="org20bb139"></a>
 
 ## bpy.types
 
@@ -66,7 +64,7 @@ parameters
 -   panel
 
 
-<a id="org7c390cf"></a>
+<a id="org58bccad"></a>
 
 ## bpy.data
 
