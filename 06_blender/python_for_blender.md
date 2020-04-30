@@ -1,20 +1,20 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#org7b8beea)
-    1.  [Section 1 - The Basic Modules](#orge733e50)
-        1.  [bpy.ops](#org74ead32)
-        2.  [bpy.context](#org43a47ce)
-        3.  [bpy.types](#orgdc618b0)
-        4.  [bpy.data](#org711a068)
-    2.  [BLENDER object, active\_object and selected\_objects](#org64216ed)
-    3.  [Selecting Objects (meshes) in BLENDER.](#org98016ae)
-        1.  [Using a getter to check whether an object is selected](#orgfd0221b)
-    4.  [Accessing Attributes](#org436b4d7)
+1.  [The BPY Module](#orga2f6f89)
+    1.  [Section 1 - The Basic Modules](#org2a193c7)
+        1.  [bpy.ops](#org19ee16c)
+        2.  [bpy.context](#orgb27f0de)
+        3.  [bpy.types](#orgb1e94c7)
+        4.  [bpy.data](#orgb832461)
+    2.  [BLENDER object, active\_object and selected\_objects](#orge13fa60)
+    3.  [Selecting Objects (meshes) in BLENDER.](#org09fe8f1)
+        1.  [Using a getter to check whether an object is selected](#org3d3f9f9)
+    4.  [Accessing Attributes](#org8a08e5d)
 
 
 
-<a id="org7b8beea"></a>
+<a id="orga2f6f89"></a>
 
 # The BPY Module
 
@@ -24,12 +24,12 @@ Blender sets up its python environment when it is started and stays active till 
     import bpy
 
 
-<a id="orge733e50"></a>
+<a id="org2a193c7"></a>
 
 ## Section 1 - The Basic Modules
 
 
-<a id="org74ead32"></a>
+<a id="org19ee16c"></a>
 
 ### bpy.ops
 
@@ -98,7 +98,7 @@ Blender sets up its python environment when it is started and stays active till 
     4.  bps.ops.mesh.select\_mode(type='VERT')
 
 
-<a id="org43a47ce"></a>
+<a id="orgb27f0de"></a>
 
 ### bpy.context
 
@@ -111,7 +111,7 @@ Blender sets up its python environment when it is started and stays active till 
 4.bpy.context.active\_object
 
 
-<a id="orgdc618b0"></a>
+<a id="orgb1e94c7"></a>
 
 ### bpy.types
 
@@ -119,7 +119,7 @@ Blender sets up its python environment when it is started and stays active till 
 -   panel
 
 
-<a id="org711a068"></a>
+<a id="orgb832461"></a>
 
 ### bpy.data
 
@@ -152,26 +152,26 @@ Blender sets up its python environment when it is started and stays active till 
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
 
 
-<a id="org64216ed"></a>
+<a id="orge13fa60"></a>
 
 ## BLENDER object, active\_object and selected\_objects
 
 In blender all objects are outlined in orange. The object which is outlined in yellow is the last selected object or the active object. An active object tends to remain an active object till another object is selected.
 
 
-<a id="org98016ae"></a>
+<a id="org09fe8f1"></a>
 
 ## Selecting Objects (meshes) in BLENDER.
 
 
-<a id="orgfd0221b"></a>
+<a id="org3d3f9f9"></a>
 
 ### Using a getter to check whether an object is selected
 
 -   bpy.context.active\_object.select\_get()
 
 
-<a id="org436b4d7"></a>
+<a id="org8a08e5d"></a>
 
 ## Accessing Attributes
 
