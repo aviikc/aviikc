@@ -1,20 +1,20 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#org6bfd69a)
-    1.  [Section 1 - The Basic Modules](#org165fb3d)
-        1.  [bpy.ops Doc Link](#orgf057924)
-        2.  [bpy.context](#org0eafa75)
-        3.  [bpy.types](#org9fec98c)
-        4.  [bpy.data](#orgbe7ff01)
-    2.  [BLENDER object, active\_object and selected\_objects](#orgca6cdd8)
-    3.  [Selecting Objects (meshes) in BLENDER.](#orgb0950a5)
-        1.  [Using a getter to check whether an object is selected](#org6dded43)
-    4.  [Accessing Attributes](#org2a93b19)
+1.  [The BPY Module](#orgbf3722e)
+    1.  [01. The Basic Modules](#org1bbd92c)
+        1.  [bpy.ops Link](#org120980d)
+        2.  [bpy.context Link](#org8597418)
+        3.  [bpy.type Linkk](#orgf7f88b7)
+        4.  [bpy.data Link](#org811e2e4)
+    2.  [02. BLENDER object, active\_object and selected\_objects](#org397d385)
+    3.  [03. Selecting Objects (meshes) in BLENDER.](#org40a1a4c)
+        1.  [Using a getter to check whether an object is selected](#orgdb05da8)
+    4.  [04. Accessing Attributes](#org90cd30c)
 
 
 
-<a id="org6bfd69a"></a>
+<a id="orgbf3722e"></a>
 
 # The BPY Module
 
@@ -29,14 +29,14 @@ Unfortunately the ‘bpy’ module cannot be used outside of Blender.
 -   Add Blender Intellisense for scripting within blender environment.
 
 
-<a id="org165fb3d"></a>
+<a id="org1bbd92c"></a>
 
-## Section 1 - The Basic Modules
+## 01. The Basic Modules
 
 
-<a id="orgf057924"></a>
+<a id="org120980d"></a>
 
-### bpy.ops [Doc Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
+### bpy.ops [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
 1.  Circle
 
@@ -82,9 +82,7 @@ Unfortunately the ‘bpy’ module cannot be used outside of Blender.
         -   location=(0.0, 0.0, 0.0)
         -   rotation=(0.0, 0.0, 0.0)
 
-4.  Selection (Alternative)
-
-5.  Selection
+4.  Selection
 
     1.  bpy.ops.object.select\_all()
     
@@ -101,9 +99,9 @@ Unfortunately the ‘bpy’ module cannot be used outside of Blender.
     4.  bps.ops.mesh.select\_mode(type='VERT')
 
 
-<a id="org0eafa75"></a>
+<a id="org8597418"></a>
 
-### bpy.context
+### bpy.context [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
 1.bpy.context.scene.objects
 Returns a collection of scene objects.
@@ -118,20 +116,26 @@ Returns a collection of scene objects.
 
 2.bpy.context.selected\_objects
 
+    # After selecting an object on the 3D View 
+    print([i for i in bpy.context.selected_objects])
+    # With some exception handling incase nothing is selected.
+    if bpy.context.selected_objects != []:
+        print(list(bpy.context.selected_objects))
+
 3.bpy.context.active\_object
 
 
-<a id="org9fec98c"></a>
+<a id="orgf7f88b7"></a>
 
-### bpy.types
+### bpy.type [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)k
 
 -   operator
 -   panel
 
 
-<a id="orgbe7ff01"></a>
+<a id="org811e2e4"></a>
 
-### bpy.data
+### bpy.data [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
 1.  Exploring the Blend Scene
 
@@ -162,26 +166,140 @@ Returns a collection of scene objects.
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
 
 
-<a id="orgca6cdd8"></a>
+<a id="org397d385"></a>
 
-## BLENDER object, active\_object and selected\_objects
+## 02. BLENDER object, active\_object and selected\_objects
 
 In blender all objects are outlined in orange. The object which is outlined in yellow is the last selected object or the active object. An active object tends to remain an active object till another object is selected.
+Objects in Blender could be of the following types:
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
-<a id="orgb0950a5"></a>
+<colgroup>
+<col  class="org-left" />
 
-## Selecting Objects (meshes) in BLENDER.
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Object</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="org-left">Mesh</td>
+<td class="org-left">Meshes are objects composed of Polygonal Faces, Edges and/or Vertices, and can be edited extensively with Blender’s mesh editing tools.</td>
+</tr>
 
 
-<a id="org6dded43"></a>
+<tr>
+<td class="org-left">Curve</td>
+<td class="org-left">Curves are mathematically defined objects which can be manipulated with control handles or control points (instead of vertices), to manage their length and curvature.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Surface</td>
+<td class="org-left">Surfaces are patches of geometry.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Metaball</td>
+<td class="org-left">Metaballs have volume. They also have an attribute to attract other metaballs in joining togather forming a larger topology.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Text</td>
+<td class="org-left">Text Objects create a two-dimensional representation of a string of characters.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Grease Pencil</td>
+<td class="org-left">Grease Pencil Objects are objects created by painting strokes.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Armature</td>
+<td class="org-left">Armatures are used for rigging 3D models in order to make them poseable and animateable.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Lattice</td>
+<td class="org-left">Lattices are non-renderable wireframes, commonly used for taking additional control over other objects with help of the Lattice Modifier.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Empty</td>
+<td class="org-left">Empties are null objects that are simple visual transform nodes that do not render. They are useful for controlling the position or movement of other objects.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Image</td>
+<td class="org-left">Images are empty objects that display images in the 3D Viewport. These images can be used to support modeling and animating.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Light</td>
+<td class="org-left">Lights for lighting the scene in renders.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Light Probe</td>
+<td class="org-left">Lights are used by the Eevee render engine and record lighting information for indirect lighting.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Camera</td>
+<td class="org-left">This is the virtual camera that is used to determine what appears in the render. See Cameras in Cycles.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Speaker</td>
+<td class="org-left">Speaker brings a source of sound to the scene.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Force Field</td>
+<td class="org-left">Force Fields are used in physical simulations. They give simulations external forces.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Collection Instance</td>
+<td class="org-left">Instances of existing collections.</td>
+</tr>
+</tbody>
+</table>
+
+
+<a id="org40a1a4c"></a>
+
+## 03. Selecting Objects (meshes) in BLENDER.
+
+
+<a id="orgdb05da8"></a>
 
 ### Using a getter to check whether an object is selected
 
 -   bpy.context.active\_object.select\_get()
 
 
-<a id="org2a93b19"></a>
+<a id="org90cd30c"></a>
 
-## Accessing Attributes
+## 04. Accessing Attributes
 
