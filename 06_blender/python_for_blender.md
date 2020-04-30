@@ -1,114 +1,101 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#org5190d24)
-    1.  [bpy.ops](#org293e419)
-        1.  [Circle](#orgaeb7fb2)
-        2.  [Sphere (Ico-sphere)](#org93fe99d)
-        3.  [Cube](#org0da6481)
-        4.  [Selection (Alternative)](#org73289a0)
-        5.  [Selection](#orgc3cbd0f)
-    2.  [bpy.context](#orgc4fbb26)
-    3.  [bpy.types](#org471a600)
-    4.  [bpy.data](#org8d09336)
-    5.  [BLENDER object, active\_object and selected\_objects](#orgf6a252c)
-    6.  [Selecting Objects (meshes) in BLENDER.](#org7e2ec10)
-        1.  [Using a getter to check whether an object is selected](#org3261ec6)
-    7.  [Accessing Attributes](#org07d24f5)
+1.  [The BPY Module](#org7302976)
+    1.  [Section 1 - The Basic Modules](#org5f5cb78)
+        1.  [bpy.ops](#org58e03aa)
+        2.  [bpy.context](#orgc797c9d)
+        3.  [bpy.types](#org2af640f)
+        4.  [bpy.data](#org2080538)
+    2.  [BLENDER object, active\_object and selected\_objects](#org5a52491)
+    3.  [Selecting Objects (meshes) in BLENDER.](#orge7ca95c)
+        1.  [Using a getter to check whether an object is selected](#org702c8b9)
+    4.  [Accessing Attributes](#org02b7d36)
 
 
 
-<a id="org5190d24"></a>
+<a id="org7302976"></a>
 
 # The BPY Module
 
 
-<a id="org293e419"></a>
+<a id="org5f5cb78"></a>
 
-## bpy.ops
+## Section 1 - The Basic Modules
 
 
-<a id="orgaeb7fb2"></a>
+<a id="org58e03aa"></a>
 
-### Circle
+### bpy.ops
 
-    import bpy                                               #imports the bpy library in BLENDER
+1.  Circle
+
+        import bpy                                               #imports the bpy library in BLENDER
+        
+        bpy.ops.mesh.primitive_circle_add(radius=1,
+                                          vertices = 20,
+                                          location=(0,4,0))
     
-    bpy.ops.mesh.primitive_circle_add(radius=1,
-                                      vertices = 20,
-                                      location=(0,4,0))
+    [Circle Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
+    
+    1.  parameters
+    
+        -   vertices
+        -   radius
+        -   location=(0.0, 0.0, 0.0)
+        -   rotation=(0.0, 0.0, 0.0)
 
-[Circle Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
+2.  Sphere (Ico-sphere)
 
-1.  parameters
+        import bpy                                                #imports the bpy library in BLENDER
+        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3,
+                                              radius=4,
+                                              location=(2,7,8),
+                                              rotation=(0,0,0))
+    
+    1.  parameters
+    
+        -   subdivisions
+        -   radius
+        -   location=(0.0, 0.0, 0.0)
+        -   rotation=(0.0, 0.0, 0.0)
 
-    -   vertices
-    -   radius
-    -   location=(0.0, 0.0, 0.0)
-    -   rotation=(0.0, 0.0, 0.0)
+3.  Cube
 
+        import bpy                                                #imports the bpy library in BLENDER
+        bpy.ops.mesh.primitive_cube_add(size = 3,
+                                        location=(2,7,8),
+                                        rotation=(0,0,0))
+    
+    1.  parameters
+    
+        -   size
+        -   align
+        -   location=(0.0, 0.0, 0.0)
+        -   rotation=(0.0, 0.0, 0.0)
 
-<a id="org93fe99d"></a>
+4.  Selection (Alternative)
 
-### Sphere (Ico-sphere)
+5.  Selection
 
-    import bpy                                                #imports the bpy library in BLENDER
-    bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3,
-                                          radius=4,
-                                          location=(2,7,8),
-                                          rotation=(0,0,0))
-
-1.  parameters
-
-    -   subdivisions
-    -   radius
-    -   location=(0.0, 0.0, 0.0)
-    -   rotation=(0.0, 0.0, 0.0)
-
-
-<a id="org0da6481"></a>
-
-### Cube
-
-    import bpy                                                #imports the bpy library in BLENDER
-    bpy.ops.mesh.primitive_cube_add(size = 3,
-                                    location=(2,7,8),
-                                    rotation=(0,0,0))
-
-1.  parameters
-
-    -   size
-    -   align
-    -   location=(0.0, 0.0, 0.0)
-    -   rotation=(0.0, 0.0, 0.0)
-
-
-<a id="org73289a0"></a>
-
-### Selection (Alternative)
-
--   bpy.ops.object.select\_all()
-    -   action = 'SELECT'
-    -   action = 'DESELECT'
-
-
-<a id="orgc3cbd0f"></a>
-
-### Selection
-
-1.  bpy.ops.object.mode\_set(mode='EDIT')
-
-    -   mode='EDIT'
-    -   mode='OBJECT'
-
-2.  bps.ops.mesh.select\_mode(type='FACE')
-
-3.  bps.ops.mesh.select\_mode(type='VERT')
+    1.  bpy.ops.object.select\_all()
+    
+        -   action = 'SELECT'
+        -   action = 'DESELECT'
+    
+    2.  bpy.ops.object.mode\_set(mode='EDIT')
+    
+        -   mode='EDIT'
+        -   mode='OBJECT'
+    
+    3.  bps.ops.mesh.select\_mode(type='FACE')
+    
+    4.  bps.ops.mesh.select\_mode(type='VERT')
 
 
-<a id="orgc4fbb26"></a>
+<a id="orgc797c9d"></a>
 
-## bpy.context
+### bpy.context
 
 1.bpy.context.scene.objects
 
@@ -119,17 +106,17 @@
 4.bpy.context.active\_object
 
 
-<a id="org471a600"></a>
+<a id="org2af640f"></a>
 
-## bpy.types
+### bpy.types
 
 -   operator
 -   panel
 
 
-<a id="org8d09336"></a>
+<a id="org2080538"></a>
 
-## bpy.data
+### bpy.data
 
 1.  Exploring the Blend Scene
 
@@ -160,26 +147,26 @@
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
 
 
-<a id="orgf6a252c"></a>
+<a id="org5a52491"></a>
 
 ## BLENDER object, active\_object and selected\_objects
 
 In blender all objects are outlined in orange. The object which is outlined in yellow is the last selected object or the active object. An active object tends to remain an active object till another object is selected.
 
 
-<a id="org7e2ec10"></a>
+<a id="orge7ca95c"></a>
 
 ## Selecting Objects (meshes) in BLENDER.
 
 
-<a id="org3261ec6"></a>
+<a id="org702c8b9"></a>
 
 ### Using a getter to check whether an object is selected
 
 -   bpy.context.active\_object.select\_get()
 
 
-<a id="org07d24f5"></a>
+<a id="org02b7d36"></a>
 
 ## Accessing Attributes
 
