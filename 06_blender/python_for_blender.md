@@ -1,20 +1,21 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#orgbf3722e)
-    1.  [01. The Basic Modules](#org1bbd92c)
-        1.  [bpy.ops Link](#org120980d)
-        2.  [bpy.context Link](#org8597418)
-        3.  [bpy.type Linkk](#orgf7f88b7)
-        4.  [bpy.data Link](#org811e2e4)
-    2.  [02. BLENDER object, active\_object and selected\_objects](#org397d385)
-    3.  [03. Selecting Objects (meshes) in BLENDER.](#org40a1a4c)
-        1.  [Using a getter to check whether an object is selected](#orgdb05da8)
-    4.  [04. Accessing Attributes](#org90cd30c)
+1.  [The BPY Module](#orgf5cbab5)
+    1.  [01. The Basic Modules](#orge52f792)
+        1.  [bpy.ops Link](#org9971090)
+        2.  [bpy.context Link](#org0072ccb)
+        3.  [bpy.type Linkk](#orgc5af0c1)
+        4.  [bpy.data Link](#org58565ad)
+    2.  [02. BLENDER object, active\_object and selected\_objects](#orge21ea61)
+    3.  [03. Selecting Objects (meshes) in BLENDER.](#org7d725d0)
+        1.  [Object Mode](#orgbac7bf2)
+        2.  [Using a getter to check whether an object is selected](#org1628f6e)
+    4.  [04. Accessing Attributes](#org28a59fa)
 
 
 
-<a id="orgbf3722e"></a>
+<a id="orgf5cbab5"></a>
 
 # The BPY Module
 
@@ -29,12 +30,12 @@ Unfortunately the ‘bpy’ module cannot be used outside of Blender.
 -   Add Blender Intellisense for scripting within blender environment.
 
 
-<a id="org1bbd92c"></a>
+<a id="orge52f792"></a>
 
 ## 01. The Basic Modules
 
 
-<a id="org120980d"></a>
+<a id="org9971090"></a>
 
 ### bpy.ops [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
@@ -99,7 +100,7 @@ Unfortunately the ‘bpy’ module cannot be used outside of Blender.
     4.  bps.ops.mesh.select\_mode(type='VERT')
 
 
-<a id="org8597418"></a>
+<a id="org0072ccb"></a>
 
 ### bpy.context [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
@@ -125,7 +126,7 @@ Returns a collection of scene objects.
 3.bpy.context.active\_object
 
 
-<a id="orgf7f88b7"></a>
+<a id="orgc5af0c1"></a>
 
 ### bpy.type [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)k
 
@@ -133,7 +134,7 @@ Returns a collection of scene objects.
 -   panel
 
 
-<a id="org811e2e4"></a>
+<a id="org58565ad"></a>
 
 ### bpy.data [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
@@ -166,11 +167,22 @@ Returns a collection of scene objects.
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
 
 
-<a id="org397d385"></a>
+<a id="orge21ea61"></a>
 
 ## 02. BLENDER object, active\_object and selected\_objects
 
-In blender all objects are outlined in orange. The object which is outlined in yellow is the last selected object or the active object. An active object tends to remain an active object till another object is selected.
+A Blender scene is constructed from one or more objects. These objects can range from lights to illuminate your scene, basic 2D and 3D shapes to fill it with models, armatures to animate those models, to cameras. Blender object type (mesh, light, curve, camera, etc.) is composed from two parts: an Object and Object Data.
+1.Object-Holds information about the position, rotation and size of a particular element.
+2.Holds everything else. For example:
+
+Meshes
+
+    Store geometry, material list, vertex groups, etc.
+Cameras
+
+    Store focal length, depth of field, sensor size, etc.
+<br>
+
 Objects in Blender could be of the following types:
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -287,19 +299,30 @@ Objects in Blender could be of the following types:
 </table>
 
 
-<a id="org40a1a4c"></a>
+<a id="org7d725d0"></a>
 
 ## 03. Selecting Objects (meshes) in BLENDER.
 
+Selection determines which elements will be the target of our actions. Blender has different selection methods for Object Mode and in Edit Mode. In blender all objects are outlined in orange. The object which is outlined in yellow is the last selected object or the active object. An active object tends to remain an active object till another object is selected.
 
-<a id="orgdb05da8"></a>
+
+<a id="orgbac7bf2"></a>
+
+### Object Mode
+
+Blender distinguishes between two different states of selection
+
+1.  The last (de)selected item is called the “Active Object” and is outlined in yellow (the others are orange). There is at most one active object at any time. Many actions in Blender use the active object as a reference.
+
+
+<a id="org1628f6e"></a>
 
 ### Using a getter to check whether an object is selected
 
 -   bpy.context.active\_object.select\_get()
 
 
-<a id="org90cd30c"></a>
+<a id="org28a59fa"></a>
 
 ## 04. Accessing Attributes
 
