@@ -6,7 +6,7 @@ class TOPBAR_MT_custom_sub_menu(bpy.types.Menu):
 
     def draw(self, context):
         layout = self.layout
-        layout.operator("mesh.primitive_cube_add")
+        # layout.operator("mesh.primitive_cube_add")
 
 
 class TOPBAR_MT_custom_menu(bpy.types.Menu):

@@ -1,30 +1,30 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#org66d0bd6)
-    1.  [bpy.ops](#orgf5afa58)
-        1.  [Circle](#orgb6e13dc)
-        2.  [Sphere (Ico-sphere)](#orgb062ac7)
-        3.  [Cube](#org2b44ae5)
-        4.  [Selection (Alternative)](#orgc7bc90c)
-        5.  [Selection](#orgc837a6f)
-    2.  [bpy.context](#org1680047)
-    3.  [bpy.types](#org8fd363e)
-    4.  [bpy.data](#org8eb94a1)
+1.  [The BPY Module](#org5a43514)
+    1.  [bpy.ops](#org495dc0a)
+        1.  [Circle](#orgeafa628)
+        2.  [Sphere (Ico-sphere)](#org1ea3cbe)
+        3.  [Cube](#org6b3bf22)
+        4.  [Selection (Alternative)](#org63f6958)
+        5.  [Selection](#org79331c4)
+    2.  [bpy.context](#org3782ddd)
+    3.  [bpy.types](#orgfb07bf5)
+    4.  [bpy.data](#orgb5fd4d5)
 
 
 
-<a id="org66d0bd6"></a>
+<a id="org5a43514"></a>
 
 # The BPY Module
 
 
-<a id="orgf5afa58"></a>
+<a id="org495dc0a"></a>
 
 ## bpy.ops
 
 
-<a id="orgb6e13dc"></a>
+<a id="orgeafa628"></a>
 
 ### Circle
 
@@ -44,7 +44,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="orgb062ac7"></a>
+<a id="org1ea3cbe"></a>
 
 ### Sphere (Ico-sphere)
 
@@ -62,7 +62,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="org2b44ae5"></a>
+<a id="org6b3bf22"></a>
 
 ### Cube
 
@@ -79,7 +79,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="orgc7bc90c"></a>
+<a id="org63f6958"></a>
 
 ### Selection (Alternative)
 
@@ -88,7 +88,7 @@
     -   action = 'DESELECT'
 
 
-<a id="orgc837a6f"></a>
+<a id="org79331c4"></a>
 
 ### Selection
 
@@ -102,7 +102,7 @@
 3.  bps.ops.mesh.select\_mode(type='VERT')
 
 
-<a id="org1680047"></a>
+<a id="org3782ddd"></a>
 
 ## bpy.context
 
@@ -115,7 +115,7 @@
 4.bpy.context.active\_object
 
 
-<a id="org8fd363e"></a>
+<a id="orgfb07bf5"></a>
 
 ## bpy.types
 
@@ -123,11 +123,23 @@
 -   panel
 
 
-<a id="org8eb94a1"></a>
+<a id="orgb5fd4d5"></a>
 
 ## bpy.data
 
 1.my\_object.data.vertices
 
 2.my\_object.data.faces
+
+    
+    import bpy
+    
+    
+    bpy.ops.mesh.primitive_circle_add(radius=6, vertices=12)
+    
+    my_circ = bpy.context.object
+    cir_verts = len(my_circ.data.vertices)
+    
+    for i in range(cir_verts):
+        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
 
