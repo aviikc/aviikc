@@ -1,30 +1,35 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#org7302976)
-    1.  [Section 1 - The Basic Modules](#org5f5cb78)
-        1.  [bpy.ops](#org58e03aa)
-        2.  [bpy.context](#orgc797c9d)
-        3.  [bpy.types](#org2af640f)
-        4.  [bpy.data](#org2080538)
-    2.  [BLENDER object, active\_object and selected\_objects](#org5a52491)
-    3.  [Selecting Objects (meshes) in BLENDER.](#orge7ca95c)
-        1.  [Using a getter to check whether an object is selected](#org702c8b9)
-    4.  [Accessing Attributes](#org02b7d36)
+1.  [The BPY Module](#org7b8beea)
+    1.  [Section 1 - The Basic Modules](#orge733e50)
+        1.  [bpy.ops](#org74ead32)
+        2.  [bpy.context](#org43a47ce)
+        3.  [bpy.types](#orgdc618b0)
+        4.  [bpy.data](#org711a068)
+    2.  [BLENDER object, active\_object and selected\_objects](#org64216ed)
+    3.  [Selecting Objects (meshes) in BLENDER.](#org98016ae)
+        1.  [Using a getter to check whether an object is selected](#orgfd0221b)
+    4.  [Accessing Attributes](#org436b4d7)
 
 
 
-<a id="org7302976"></a>
+<a id="org7b8beea"></a>
 
 # The BPY Module
 
+Blender sets up its python environment when it is started and stays active till blender process is killed. Blender provides the bpy module to the Python interpreter. This module can be imported in a script and gives access to Blender data, classes, and functions.
 
-<a id="org5f5cb78"></a>
+    # To use bpy module 
+    import bpy
+
+
+<a id="orge733e50"></a>
 
 ## Section 1 - The Basic Modules
 
 
-<a id="org58e03aa"></a>
+<a id="org74ead32"></a>
 
 ### bpy.ops
 
@@ -93,7 +98,7 @@
     4.  bps.ops.mesh.select\_mode(type='VERT')
 
 
-<a id="orgc797c9d"></a>
+<a id="org43a47ce"></a>
 
 ### bpy.context
 
@@ -106,7 +111,7 @@
 4.bpy.context.active\_object
 
 
-<a id="org2af640f"></a>
+<a id="orgdc618b0"></a>
 
 ### bpy.types
 
@@ -114,7 +119,7 @@
 -   panel
 
 
-<a id="org2080538"></a>
+<a id="org711a068"></a>
 
 ### bpy.data
 
@@ -147,26 +152,26 @@
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
 
 
-<a id="org5a52491"></a>
+<a id="org64216ed"></a>
 
 ## BLENDER object, active\_object and selected\_objects
 
 In blender all objects are outlined in orange. The object which is outlined in yellow is the last selected object or the active object. An active object tends to remain an active object till another object is selected.
 
 
-<a id="orge7ca95c"></a>
+<a id="org98016ae"></a>
 
 ## Selecting Objects (meshes) in BLENDER.
 
 
-<a id="org702c8b9"></a>
+<a id="orgfd0221b"></a>
 
 ### Using a getter to check whether an object is selected
 
 -   bpy.context.active\_object.select\_get()
 
 
-<a id="org02b7d36"></a>
+<a id="org436b4d7"></a>
 
 ## Accessing Attributes
 
