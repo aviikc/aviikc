@@ -1,30 +1,30 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#org5a43514)
-    1.  [bpy.ops](#org495dc0a)
-        1.  [Circle](#orgeafa628)
-        2.  [Sphere (Ico-sphere)](#org1ea3cbe)
-        3.  [Cube](#org6b3bf22)
-        4.  [Selection (Alternative)](#org63f6958)
-        5.  [Selection](#org79331c4)
-    2.  [bpy.context](#org3782ddd)
-    3.  [bpy.types](#orgfb07bf5)
-    4.  [bpy.data](#orgb5fd4d5)
+1.  [The BPY Module](#orgdf27e02)
+    1.  [bpy.ops](#orga70f450)
+        1.  [Circle](#orge6316c7)
+        2.  [Sphere (Ico-sphere)](#orge677d99)
+        3.  [Cube](#org03ce1e2)
+        4.  [Selection (Alternative)](#orged0a6c7)
+        5.  [Selection](#org08c293d)
+    2.  [bpy.context](#org4d02e39)
+    3.  [bpy.types](#org02e694c)
+    4.  [bpy.data](#orge655ce1)
 
 
 
-<a id="org5a43514"></a>
+<a id="orgdf27e02"></a>
 
 # The BPY Module
 
 
-<a id="org495dc0a"></a>
+<a id="orga70f450"></a>
 
 ## bpy.ops
 
 
-<a id="orgeafa628"></a>
+<a id="orge6316c7"></a>
 
 ### Circle
 
@@ -44,7 +44,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="org1ea3cbe"></a>
+<a id="orge677d99"></a>
 
 ### Sphere (Ico-sphere)
 
@@ -62,7 +62,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="org6b3bf22"></a>
+<a id="org03ce1e2"></a>
 
 ### Cube
 
@@ -79,7 +79,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="org63f6958"></a>
+<a id="orged0a6c7"></a>
 
 ### Selection (Alternative)
 
@@ -88,7 +88,7 @@
     -   action = 'DESELECT'
 
 
-<a id="org79331c4"></a>
+<a id="org08c293d"></a>
 
 ### Selection
 
@@ -102,7 +102,7 @@
 3.  bps.ops.mesh.select\_mode(type='VERT')
 
 
-<a id="org3782ddd"></a>
+<a id="org4d02e39"></a>
 
 ## bpy.context
 
@@ -115,7 +115,7 @@
 4.bpy.context.active\_object
 
 
-<a id="orgfb07bf5"></a>
+<a id="org02e694c"></a>
 
 ## bpy.types
 
@@ -123,7 +123,7 @@
 -   panel
 
 
-<a id="orgb5fd4d5"></a>
+<a id="orge655ce1"></a>
 
 ## bpy.data
 
