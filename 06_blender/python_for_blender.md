@@ -1,30 +1,30 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#orgcb901ac)
-    1.  [bpy.ops](#org08cb75f)
-        1.  [Circle](#org1467929)
-        2.  [Sphere (Ico-sphere)](#org5c055c2)
-        3.  [Cube](#org235a0a1)
-        4.  [Selection (Alternative)](#org0e0416f)
-        5.  [Selection](#org3afeab3)
-    2.  [bpy.context](#org782f332)
-    3.  [bpy.types](#org15d4a0e)
-    4.  [bpy.data](#org007c342)
+1.  [The BPY Module](#org66d0bd6)
+    1.  [bpy.ops](#orgf5afa58)
+        1.  [Circle](#orgb6e13dc)
+        2.  [Sphere (Ico-sphere)](#orgb062ac7)
+        3.  [Cube](#org2b44ae5)
+        4.  [Selection (Alternative)](#orgc7bc90c)
+        5.  [Selection](#orgc837a6f)
+    2.  [bpy.context](#org1680047)
+    3.  [bpy.types](#org8fd363e)
+    4.  [bpy.data](#org8eb94a1)
 
 
 
-<a id="orgcb901ac"></a>
+<a id="org66d0bd6"></a>
 
 # The BPY Module
 
 
-<a id="org08cb75f"></a>
+<a id="orgf5afa58"></a>
 
 ## bpy.ops
 
 
-<a id="org1467929"></a>
+<a id="orgb6e13dc"></a>
 
 ### Circle
 
@@ -44,7 +44,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="org5c055c2"></a>
+<a id="orgb062ac7"></a>
 
 ### Sphere (Ico-sphere)
 
@@ -62,7 +62,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="org235a0a1"></a>
+<a id="org2b44ae5"></a>
 
 ### Cube
 
@@ -79,43 +79,43 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="org0e0416f"></a>
+<a id="orgc7bc90c"></a>
 
 ### Selection (Alternative)
 
--   bpy.ops.object.select<sub>all</sub>()
+-   bpy.ops.object.select\_all()
     -   action = 'SELECT'
     -   action = 'DESELECT'
 
 
-<a id="org3afeab3"></a>
+<a id="orgc837a6f"></a>
 
 ### Selection
 
-1.  bpy.ops.object.mode<sub>set</sub>(mode='EDIT')
+1.  bpy.ops.object.mode\_set(mode='EDIT')
 
     -   mode='EDIT'
     -   mode='OBJECT'
 
-2.  bps.ops.mesh.select<sub>mode</sub>(type='FACE')
+2.  bps.ops.mesh.select\_mode(type='FACE')
 
-3.  bps.ops.mesh.select<sub>mode</sub>(type='VERT')
+3.  bps.ops.mesh.select\_mode(type='VERT')
 
 
-<a id="org782f332"></a>
+<a id="org1680047"></a>
 
 ## bpy.context
 
-1.\`\`\`bpy.context.scene.objects\`\`\`
+1.bpy.context.scene.objects
 
-2.\`\`\`bpy.context.view<sub>layer.objects</sub>\`\`\`
+2.bpy.context.view\_layer.objects
 
-3.\`\`\`bpy.context.selected<sub>objects</sub>\`\`\`
+3.bpy.context.selected\_objects
 
-4.bpy.context.active<sub>object</sub>
+4.bpy.context.active\_object
 
 
-<a id="org15d4a0e"></a>
+<a id="org8fd363e"></a>
 
 ## bpy.types
 
@@ -123,11 +123,11 @@
 -   panel
 
 
-<a id="org007c342"></a>
+<a id="org8eb94a1"></a>
 
 ## bpy.data
 
-1.my<sub>object.data.vertices</sub>
+1.my\_object.data.vertices
 
-2.my<sub>object.data.faces</sub>
+2.my\_object.data.faces
 
