@@ -1,20 +1,20 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#orga2f6f89)
-    1.  [Section 1 - The Basic Modules](#org2a193c7)
-        1.  [bpy.ops](#org19ee16c)
-        2.  [bpy.context](#orgb27f0de)
-        3.  [bpy.types](#orgb1e94c7)
-        4.  [bpy.data](#orgb832461)
-    2.  [BLENDER object, active\_object and selected\_objects](#orge13fa60)
-    3.  [Selecting Objects (meshes) in BLENDER.](#org09fe8f1)
-        1.  [Using a getter to check whether an object is selected](#org3d3f9f9)
-    4.  [Accessing Attributes](#org8a08e5d)
+1.  [The BPY Module](#org6bfd69a)
+    1.  [Section 1 - The Basic Modules](#org165fb3d)
+        1.  [bpy.ops Doc Link](#orgf057924)
+        2.  [bpy.context](#org0eafa75)
+        3.  [bpy.types](#org9fec98c)
+        4.  [bpy.data](#orgbe7ff01)
+    2.  [BLENDER object, active\_object and selected\_objects](#orgca6cdd8)
+    3.  [Selecting Objects (meshes) in BLENDER.](#orgb0950a5)
+        1.  [Using a getter to check whether an object is selected](#org6dded43)
+    4.  [Accessing Attributes](#org2a93b19)
 
 
 
-<a id="orga2f6f89"></a>
+<a id="org6bfd69a"></a>
 
 # The BPY Module
 
@@ -23,15 +23,20 @@ Blender sets up its python environment when it is started and stays active till 
     # To use bpy module 
     import bpy
 
+Unfortunately the ‘bpy’ module cannot be used outside of Blender.
 
-<a id="org2a193c7"></a>
+-   Check-out pip install fake-bpy-module-<version> where version could be the blender version you are using. More info at <https://github.com/nutti/fake-bpy-module>
+-   Add Blender Intellisense for scripting within blender environment.
+
+
+<a id="org165fb3d"></a>
 
 ## Section 1 - The Basic Modules
 
 
-<a id="org19ee16c"></a>
+<a id="orgf057924"></a>
 
-### bpy.ops
+### bpy.ops [Doc Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
 1.  Circle
 
@@ -40,8 +45,6 @@ Blender sets up its python environment when it is started and stays active till 
         bpy.ops.mesh.primitive_circle_add(radius=1,
                                           vertices = 20,
                                           location=(0,4,0))
-    
-    [Circle Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
     
     1.  parameters
     
@@ -98,20 +101,27 @@ Blender sets up its python environment when it is started and stays active till 
     4.  bps.ops.mesh.select\_mode(type='VERT')
 
 
-<a id="orgb27f0de"></a>
+<a id="org0eafa75"></a>
 
 ### bpy.context
 
 1.bpy.context.scene.objects
+Returns a collection of scene objects.
 
-2.bpy.context.view\_layer.objects
+    print([i for i in bpy.context.scene.objects])
+    # or the statement can also be written as, 
+    print(list(bpy.context.scene.objects))
+    
+    # Please note that printint type of bpy.context.scene.objects yeild "bpy_prop_collection"
+    print(type(bpy.context.scene.objects))
+    # Results in: <class 'bpy_prop_collection'>
 
-3.bpy.context.selected\_objects
+2.bpy.context.selected\_objects
 
-4.bpy.context.active\_object
+3.bpy.context.active\_object
 
 
-<a id="orgb1e94c7"></a>
+<a id="org9fec98c"></a>
 
 ### bpy.types
 
@@ -119,7 +129,7 @@ Blender sets up its python environment when it is started and stays active till 
 -   panel
 
 
-<a id="orgb832461"></a>
+<a id="orgbe7ff01"></a>
 
 ### bpy.data
 
@@ -152,26 +162,26 @@ Blender sets up its python environment when it is started and stays active till 
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
 
 
-<a id="orge13fa60"></a>
+<a id="orgca6cdd8"></a>
 
 ## BLENDER object, active\_object and selected\_objects
 
 In blender all objects are outlined in orange. The object which is outlined in yellow is the last selected object or the active object. An active object tends to remain an active object till another object is selected.
 
 
-<a id="org09fe8f1"></a>
+<a id="orgb0950a5"></a>
 
 ## Selecting Objects (meshes) in BLENDER.
 
 
-<a id="org3d3f9f9"></a>
+<a id="org6dded43"></a>
 
 ### Using a getter to check whether an object is selected
 
 -   bpy.context.active\_object.select\_get()
 
 
-<a id="org8a08e5d"></a>
+<a id="org2a93b19"></a>
 
 ## Accessing Attributes
 
