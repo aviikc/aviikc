@@ -1,30 +1,30 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#orgc869faa)
-    1.  [bpy.ops](#org2d5c426)
-        1.  [Circle](#orge56a73a)
-        2.  [Sphere (Ico-sphere)](#orgb02f71b)
-        3.  [Cube](#orgc983e1f)
-        4.  [Selection (Alternative)](#org139e7d2)
-        5.  [Selection](#org7dd9613)
-    2.  [bpy.context](#org9931236)
-    3.  [bpy.types](#org843039f)
-    4.  [bpy.data](#orgafec8a5)
+1.  [The BPY Module](#orgcb901ac)
+    1.  [bpy.ops](#org08cb75f)
+        1.  [Circle](#org1467929)
+        2.  [Sphere (Ico-sphere)](#org5c055c2)
+        3.  [Cube](#org235a0a1)
+        4.  [Selection (Alternative)](#org0e0416f)
+        5.  [Selection](#org3afeab3)
+    2.  [bpy.context](#org782f332)
+    3.  [bpy.types](#org15d4a0e)
+    4.  [bpy.data](#org007c342)
 
 
 
-<a id="orgc869faa"></a>
+<a id="orgcb901ac"></a>
 
 # The BPY Module
 
 
-<a id="org2d5c426"></a>
+<a id="org08cb75f"></a>
 
 ## bpy.ops
 
 
-<a id="orge56a73a"></a>
+<a id="org1467929"></a>
 
 ### Circle
 
@@ -44,7 +44,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="orgb02f71b"></a>
+<a id="org5c055c2"></a>
 
 ### Sphere (Ico-sphere)
 
@@ -62,7 +62,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="orgc983e1f"></a>
+<a id="org235a0a1"></a>
 
 ### Cube
 
@@ -79,7 +79,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="org139e7d2"></a>
+<a id="org0e0416f"></a>
 
 ### Selection (Alternative)
 
@@ -88,7 +88,7 @@
     -   action = 'DESELECT'
 
 
-<a id="org7dd9613"></a>
+<a id="org3afeab3"></a>
 
 ### Selection
 
@@ -102,20 +102,20 @@
 3.  bps.ops.mesh.select<sub>mode</sub>(type='VERT')
 
 
-<a id="org9931236"></a>
+<a id="org782f332"></a>
 
 ## bpy.context
 
-1.bpy.context.scene.objects
+1.\`\`\`bpy.context.scene.objects\`\`\`
 
-2.bpy.context.view<sub>layer.objects</sub>
+2.\`\`\`bpy.context.view<sub>layer.objects</sub>\`\`\`
 
-3.bpy.context.selected<sub>objects</sub>
+3.\`\`\`bpy.context.selected<sub>objects</sub>\`\`\`
 
 4.bpy.context.active<sub>object</sub>
 
 
-<a id="org843039f"></a>
+<a id="org15d4a0e"></a>
 
 ## bpy.types
 
@@ -123,7 +123,7 @@
 -   panel
 
 
-<a id="orgafec8a5"></a>
+<a id="org007c342"></a>
 
 ## bpy.data
 
