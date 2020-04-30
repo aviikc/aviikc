@@ -1,34 +1,34 @@
 
 # Table of Contents
 
-1.  [The BPY Module](#org5af7954)
-    1.  [bpy.ops](#orgef250e7)
-        1.  [Circle](#orge2069f1)
-        2.  [Sphere (Ico-sphere)](#orgdb3d390)
-        3.  [Cube](#org90399a5)
-        4.  [Selection (Alternative)](#org86664ef)
-        5.  [Selection](#orge415496)
-    2.  [bpy.context](#orgf660c65)
-    3.  [bpy.types](#org81ee63d)
-    4.  [bpy.data](#orged8fe39)
-2.  [BLENDER object, active\_object and selected\_objects](#org16c5942)
-3.  [Selecting Objects (meshes) in BLENDER.](#org1ba11fc)
-        1.  [Using a getter to check whether an object is selected](#orgf35946e)
-4.  [Accessing Attributes](#org731f033)
+1.  [The BPY Module](#org5190d24)
+    1.  [bpy.ops](#org293e419)
+        1.  [Circle](#orgaeb7fb2)
+        2.  [Sphere (Ico-sphere)](#org93fe99d)
+        3.  [Cube](#org0da6481)
+        4.  [Selection (Alternative)](#org73289a0)
+        5.  [Selection](#orgc3cbd0f)
+    2.  [bpy.context](#orgc4fbb26)
+    3.  [bpy.types](#org471a600)
+    4.  [bpy.data](#org8d09336)
+    5.  [BLENDER object, active\_object and selected\_objects](#orgf6a252c)
+    6.  [Selecting Objects (meshes) in BLENDER.](#org7e2ec10)
+        1.  [Using a getter to check whether an object is selected](#org3261ec6)
+    7.  [Accessing Attributes](#org07d24f5)
 
 
 
-<a id="org5af7954"></a>
+<a id="org5190d24"></a>
 
 # The BPY Module
 
 
-<a id="orgef250e7"></a>
+<a id="org293e419"></a>
 
 ## bpy.ops
 
 
-<a id="orge2069f1"></a>
+<a id="orgaeb7fb2"></a>
 
 ### Circle
 
@@ -48,7 +48,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="orgdb3d390"></a>
+<a id="org93fe99d"></a>
 
 ### Sphere (Ico-sphere)
 
@@ -66,7 +66,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="org90399a5"></a>
+<a id="org0da6481"></a>
 
 ### Cube
 
@@ -83,7 +83,7 @@
     -   rotation=(0.0, 0.0, 0.0)
 
 
-<a id="org86664ef"></a>
+<a id="org73289a0"></a>
 
 ### Selection (Alternative)
 
@@ -92,7 +92,7 @@
     -   action = 'DESELECT'
 
 
-<a id="orge415496"></a>
+<a id="orgc3cbd0f"></a>
 
 ### Selection
 
@@ -106,7 +106,7 @@
 3.  bps.ops.mesh.select\_mode(type='VERT')
 
 
-<a id="orgf660c65"></a>
+<a id="orgc4fbb26"></a>
 
 ## bpy.context
 
@@ -119,7 +119,7 @@
 4.bpy.context.active\_object
 
 
-<a id="org81ee63d"></a>
+<a id="org471a600"></a>
 
 ## bpy.types
 
@@ -127,7 +127,7 @@
 -   panel
 
 
-<a id="orged8fe39"></a>
+<a id="org8d09336"></a>
 
 ## bpy.data
 
@@ -160,26 +160,26 @@
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
 
 
-<a id="org16c5942"></a>
+<a id="orgf6a252c"></a>
 
-# BLENDER object, active\_object and selected\_objects
+## BLENDER object, active\_object and selected\_objects
 
 In blender all objects are outlined in orange. The object which is outlined in yellow is the last selected object or the active object. An active object tends to remain an active object till another object is selected.
 
 
-<a id="org1ba11fc"></a>
+<a id="org7e2ec10"></a>
 
-# Selecting Objects (meshes) in BLENDER.
+## Selecting Objects (meshes) in BLENDER.
 
 
-<a id="orgf35946e"></a>
+<a id="org3261ec6"></a>
 
 ### Using a getter to check whether an object is selected
 
 -   bpy.context.active\_object.select\_get()
 
 
-<a id="org731f033"></a>
+<a id="org07d24f5"></a>
 
-# Accessing Attributes
+## Accessing Attributes
 
