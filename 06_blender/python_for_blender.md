@@ -1,21 +1,4 @@
 
-# Table of Contents
-
-1.  [The BPY Module](#orgf5cbab5)
-    1.  [01. The Basic Modules](#orge52f792)
-        1.  [bpy.ops Link](#org9971090)
-        2.  [bpy.context Link](#org0072ccb)
-        3.  [bpy.type Linkk](#orgc5af0c1)
-        4.  [bpy.data Link](#org58565ad)
-    2.  [02. BLENDER object, active\_object and selected\_objects](#orge21ea61)
-    3.  [03. Selecting Objects (meshes) in BLENDER.](#org7d725d0)
-        1.  [Object Mode](#orgbac7bf2)
-        2.  [Using a getter to check whether an object is selected](#org1628f6e)
-    4.  [04. Accessing Attributes](#org28a59fa)
-
-
-
-<a id="orgf5cbab5"></a>
 
 # The BPY Module
 
@@ -30,12 +13,8 @@ Unfortunately the ‘bpy’ module cannot be used outside of Blender.
 -   Add Blender Intellisense for scripting within blender environment.
 
 
-<a id="orge52f792"></a>
-
 ## 01. The Basic Modules
 
-
-<a id="org9971090"></a>
 
 ### bpy.ops [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
@@ -100,8 +79,6 @@ Unfortunately the ‘bpy’ module cannot be used outside of Blender.
     4.  bps.ops.mesh.select\_mode(type='VERT')
 
 
-<a id="org0072ccb"></a>
-
 ### bpy.context [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
 1.bpy.context.scene.objects
@@ -126,25 +103,19 @@ Returns a collection of scene objects.
 3.bpy.context.active\_object
 
 
-<a id="orgc5af0c1"></a>
-
-### bpy.type [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)k
+### bpy.type [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
 -   operator
 -   panel
 
 
-<a id="org58565ad"></a>
-
 ### bpy.data [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
 1.  Exploring the Blend Scene
 
--   List all objects in the scene.
-
     print(list(bpy.data.objects))
     
-    #Result: [bpy.data.objects['Camera'], bpy.data.objects['Cube'], bpy.data.objects['Light']]
+    #Results: [bpy.data.objects['Camera'], bpy.data.objects['Cube'], bpy.data.objects['Light']]
 
 -Please note bpy.data.objects['Object\_Name'] can be used to check Attributes.   
 
@@ -154,20 +125,6 @@ Returns a collection of scene objects.
 
 4.Another Method to select objects(By Name)
 
-    
-    import bpy
-    
-    
-    bpy.ops.mesh.primitive_circle_add(radius=6, vertices=12)
-    
-    my_circ = bpy.context.object
-    cir_verts = len(my_circ.data.vertices)
-    
-    for i in range(cir_verts):
-        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
-
-
-<a id="orge21ea61"></a>
 
 ## 02. BLENDER object, active\_object and selected\_objects
 
@@ -299,14 +256,10 @@ Objects in Blender could be of the following types:
 </table>
 
 
-<a id="org7d725d0"></a>
-
 ## 03. Selecting Objects (meshes) in BLENDER.
 
 Selection determines which elements will be the target of our actions. Blender has different selection methods for Object Mode and in Edit Mode. In blender all objects are outlined in orange. The object which is outlined in yellow is the last selected object or the active object. An active object tends to remain an active object till another object is selected.
 
-
-<a id="orgbac7bf2"></a>
 
 ### Object Mode
 
@@ -315,14 +268,27 @@ Blender distinguishes between two different states of selection
 1.  The last (de)selected item is called the “Active Object” and is outlined in yellow (the others are orange). There is at most one active object at any time. Many actions in Blender use the active object as a reference.
 
 
-<a id="org1628f6e"></a>
-
 ### Using a getter to check whether an object is selected
 
 -   bpy.context.active\_object.select\_get()
 
 
-<a id="org28a59fa"></a>
-
 ## 04. Accessing Attributes
+
+
+## 05. Example Programs
+
+1.  Creating a set of spheres at each vertex of a circle.
+
+        
+        import bpy
+        
+        
+        bpy.ops.mesh.primitive_circle_add(radius=6, vertices=12)
+        
+        my_circ = bpy.context.object
+        cir_verts = len(my_circ.data.vertices)
+        
+        for i in range(cir_verts):
+            bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
 
