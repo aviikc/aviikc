@@ -1,45 +1,52 @@
 
-# Table of Contents
-
-1.  [Blender UI](#orgf7cf081)
-    1.  [B](#orgb44a437)
-    2.  [Panels](#org4a8f35a)
-    3.  [Contexts](#org5d59ad6)
-        1.  [Panel Locations](#org33f88b4)
-        2.  [Panel Region](#orgf567fbf)
-
-
-<a id="orgf7cf081"></a>
 
 # Blender UI
 
 Blender's interface is drawn entirely in OpenGL which allows you to customize your interface to suit your needs. Windows and other interface elements can be panned, zoomed and their content moved around.
+info at <http://www.letworyinteractive.com/blendercode/d5/d2e/GHOSTPage.html>
+<br/>
 <br/>
 Blender user interface is based on 3 main principles.
 
 -   **Non Overlapping:** The UI permits you to view all relevant options and tools at a glance without pushing or dragging windows around.
 -   **Non Blocking:**  Tools and interface options do not block the user from any other parts of Blender. Blender doesn't pop up requesters that require the user to fill in data before things execute.
--   **Non Modal:** User input should remain as consistent and predictable as possible without changing commonly used methods (mouse, keyboard) on the fly. \*\* Menus
+-   **Non Modal:** User input should remain as consistent and predictable as possible without changing commonly used methods (mouse, keyboard) on the fly.
 
 
-<a id="orgb44a437"></a>
+## Regions
 
-## B
+Every Editor in Blender is divided into Regions. Regions can have smaller structuring elements like tabs and panels with buttons, controls and widgets placed within them.
+
+-   **Main Region -** At least one region is always visible. It is called the Main region and is the most prominent part of the editor.
+-   **Header -** A header is a small horizontal strip, which sits either at the top or bottom of an area. 
+    -   **Context Menu -** The context menu is available with right click on a header.
+-   **Toolbar -** The Toolbar (on the left side of the editor area) contains a set of interactive tools.
+-   **Tool Settings -** The Tool Settings (at the top/bottom of the editor area) contains as its name suggests the settings of the active tool. It’s visibility can be toggled with the header’s context menu.
+-   **Adjust Last Operation -** The Adjust Last Operation is a region that shows tool options when tools (operators) are run.
+-   **Sidebar -** The Sidebar (on the right side of the editor area) contains Panels with settings of objects within the editor and the editor itself.
+-   **Footer -** Some editors show a bar (on top/bottom of the editor area) that displays information about for example the active tool.
 
 
-<a id="org4a8f35a"></a>
+## Menu
+
+A menu in blender is a list of options in text form. There are a variety of different menus available for accessing options and tools.
+Menus reside in blender under different.
+
+
+## Tabs
+
+Tabs are used to control overlapping sections in the user interface. Contents of only one Tab is visible at a time. Tabs are listed in Tab header, which can be vertical or horizontal.
+
 
 ## Panels
 
+The smallest organizational unit in the user interface is a panel. Panel header is always visible, and it shows the title for the panel. A panel can either be expanded to show its contents, or collapsed to hide its contents.
 
-<a id="org5d59ad6"></a>
 
 ## Contexts
 
 Designing an UI or Add-on is basically a combination of supplying Properties and the inheritance of built-in Type classes (Panel, Operator, Menu etc.).
 
-
-<a id="org33f88b4"></a>
 
 ### Panel Locations
 
@@ -168,8 +175,6 @@ Designing an UI or Add-on is basically a combination of supplying Properties and
 </tbody>
 </table>
 
-
-<a id="orgf567fbf"></a>
 
 ### Panel Region
 
