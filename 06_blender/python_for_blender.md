@@ -59,11 +59,11 @@ The path ./2.83/ is relative to the Blender executable.
 <span class="underline">Windows Users</span>
 For default installation location addons is usually found in;
 
-C:\Program Files\Blender Foundation\blender\\[version]\addons 
+    C:\Program Files\Blender Foundation\blender\[version]\addons 
 
 For the secondary "User" location, addons is usually found in;
 
-C:\Users\\[profile]\AppData\Roaming\Blender Foundation\\&#x2026;
+    C:\Users\[profile]\AppData\Roaming\Blender Foundation\...
 
 
 ## Scenes
@@ -207,14 +207,16 @@ Objects in Blender could be of the following types:
 There can be many objects in a scene: A typical stage scene consists of furniture, props, lights, and backdrops. Blender helps you keep everything organized by allowing you to group like objects together. Objects can be grouped together without any kind of transformation relationship (unlike parenting). Collections are used to just logically organize your scene, or to facilitate one-step appending or linking between files or across scenes. Also View Layers refernce to collections and allow to set their visibility, selectability and other options. A view layer can have any collection enabled, and multiple view layers can use the same or different collections.
 
 
-## Extending Blender with Python
-
-
 ## API
 
 An application programming interface (API) is a computing interface which defines interactions between multiple software intermediaries.
 
 ![img](img/api.png)
+
+In other words blender possibly uses C/C++ programming heavily as observed from the gitgub repository of their source code. The Python based API offers an interface with the core engine of blender.
+
+
+## Extending Blender with Python
 
 
 ### Scripts
@@ -240,7 +242,7 @@ Some of Blender functionality is kept optional, alongside scripts loaded at star
 
 ## Python Programming Environment in Blender
 
-The two most common ways to execute Python scripts are using the built-in text editor or entering commands in the Python console.
+The two most common ways to execute Python scripts are using the built-in text editor or entering commands in the Python console. Please use the console window to recieve output. Swithching on python tool tips in the prefernces of Blender helps a lot in knowing the functions associated with menus and buttons.
 
 
 # The BPY Module
@@ -348,9 +350,26 @@ Returns a collection of scene objects.
 
 ### bpy.type [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
--   operator
+1.  Operator
 
-1.  Panel
+        import bpy
+        
+        
+        class HelloWorldOperator(bpy.types.Operator):
+            bl_idname = "wm.hello_world"
+            bl_label = "Minimal Operator"
+        
+            def execute(self, context):
+                print("Hello World")
+                return {'FINISHED'}
+        
+        
+        bpy.utils.register_class(HelloWorldOperator)
+        
+        # test call to the newly defined operator
+        bpy.ops.wm.hello_world() 
+
+2.  Panel
 
         import bpy
         
@@ -410,6 +429,8 @@ Returns a collection of scene objects.
 
 
 ## 02. BLENDER object, active\_object and selected\_objects
+
+Anything and everything in a blender scene is a Blender Object.
 
 
 ## 03. Selecting Objects (meshes) in BLENDER.
