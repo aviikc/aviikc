@@ -73,25 +73,25 @@ Designing an UI or Add-on is basically a combination of supplying Properties and
 
 
 <tr>
-<td class="org-left">VIEW\_3D</td>
+<td class="org-left">VIEW=\_=3D</td>
 <td class="org-left">3D Viewport, Manipulate objects in a 3D environment.</td>
 </tr>
 
 
 <tr>
-<td class="org-left">IMAGE\_EDITOR</td>
+<td class="org-left">IMAGE=\_=EDITOR</td>
 <td class="org-left">UV/Image Editor, View and edit images and UV Maps.</td>
 </tr>
 
 
 <tr>
-<td class="org-left">NODE\_EDITOR</td>
+<td class="org-left">NODE~\_~EDITOR</td>
 <td class="org-left">Node Editor, Editor for node-based shading and compositing tools.</td>
 </tr>
 
 
 <tr>
-<td class="org-left">SEQUENCE\_EDITOR</td>
+<td class="org-left">SEQUENCE~\_~EDITOR</td>
 <td class="org-left">Video Sequencer, Video editing tools.</td>
 </tr>
 
