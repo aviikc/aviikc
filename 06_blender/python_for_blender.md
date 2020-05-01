@@ -210,6 +210,13 @@ There can be many objects in a scene: A typical stage scene consists of furnitur
 ## Extending Blender with Python
 
 
+## API
+
+An application programming interface (API) is a computing interface which defines interactions between multiple software intermediaries.
+
+![img](img/api.png)
+
+
 ### Scripts
 
 A Python script in Blender is a collection of commands in a file designed to be executed like a program directly or importing it as a module.
