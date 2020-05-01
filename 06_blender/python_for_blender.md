@@ -1,132 +1,77 @@
 
 
-# The BPY Module
+# Blender API
 
-Blender sets up its python environment when it is started and stays active till blender process is killed. Blender provides the bpy module to the Python interpreter. This module can be imported in a script and gives access to Blender data, classes, and functions.
-
-    # To use bpy module 
-    import bpy
-
-Unfortunately the ‘bpy’ module cannot be used outside of Blender.
-
--   Check-out pip install fake-bpy-module-<version> where version could be the blender version you are using. More info at <https://github.com/nutti/fake-bpy-module>
--   Add Blender Intellisense for scripting within blender environment.
+Before start talking about API and Python lets understand a few core concepts of Blender.
 
 
-## 01. The Basic Modules
+## Blender Directory Layout
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
-### bpy.ops [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
+<colgroup>
+<col  class="org-left" />
 
-1.  Circle
+<col  class="org-left" />
 
-        import bpy                                               #imports the bpy library in BLENDER
-        
-        bpy.ops.mesh.primitive_circle_add(radius=1,
-                                          vertices = 20,
-                                          location=(0,4,0))
-    
-    1.  parameters
-    
-        -   vertices
-        -   radius
-        -   location=(0.0, 0.0, 0.0)
-        -   rotation=(0.0, 0.0, 0.0)
+<col  class="org-left" />
 
-2.  Sphere (Ico-sphere)
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Location</th>
+<th scope="col" class="org-left">Use</th>
+<th scope="col" class="org-left">url in Windows</th>
+<th scope="col" class="org-left">url in MacOS</th>
+</tr>
+</thead>
 
-        import bpy                                                #imports the bpy library in BLENDER
-        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3,
-                                              radius=4,
-                                              location=(2,7,8),
-                                              rotation=(0,0,0))
-    
-    1.  parameters
-    
-        -   subdivisions
-        -   radius
-        -   location=(0.0, 0.0, 0.0)
-        -   rotation=(0.0, 0.0, 0.0)
-
-3.  Cube
-
-        import bpy                                                #imports the bpy library in BLENDER
-        bpy.ops.mesh.primitive_cube_add(size = 3,
-                                        location=(2,7,8),
-                                        rotation=(0,0,0))
-    
-    1.  parameters
-    
-        -   size
-        -   align
-        -   location=(0.0, 0.0, 0.0)
-        -   rotation=(0.0, 0.0, 0.0)
-
-4.  Selection
-
-    1.  bpy.ops.object.select\_all()
-    
-        -   action = 'SELECT'
-        -   action = 'DESELECT'
-    
-    2.  bpy.ops.object.mode\_set(mode='EDIT')
-    
-        -   mode='EDIT'
-        -   mode='OBJECT'
-    
-    3.  bps.ops.mesh.select\_mode(type='FACE')
-    
-    4.  bps.ops.mesh.select\_mode(type='VERT')
+<tbody>
+<tr>
+<td class="org-left">LOCAL</td>
+<td class="org-left">Location of configuration and runtime data.</td>
+<td class="org-left">.\\2.83\\</td>
+<td class="org-left">./2.83/</td>
+</tr>
 
 
-### bpy.context [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
-
-1.bpy.context.scene.objects
-Returns a collection of scene objects.
-
-    print([i for i in bpy.context.scene.objects])
-    # or the statement can also be written as, 
-    print(list(bpy.context.scene.objects))
-    
-    # Please note that printint type of bpy.context.scene.objects yeild "bpy_prop_collection"
-    print(type(bpy.context.scene.objects))
-    # Results in: <class 'bpy_prop_collection'>
-
-2.bpy.context.selected\_objects
-
-    # After selecting an object on the 3D View 
-    print([i for i in bpy.context.selected_objects])
-    # With some exception handling incase nothing is selected.
-    if bpy.context.selected_objects != []:
-        print(list(bpy.context.selected_objects))
-
-3.bpy.context.active\_object
+<tr>
+<td class="org-left">USER</td>
+<td class="org-left">Location of configuration files</td>
+<td class="org-left">%USERPROFILE%\AppData\Roaming\Blender Foundation\Blender\\2.83\\</td>
+<td class="org-left">*Users/$USER/Library/Application Support/Blender/2.83*</td>
+</tr>
 
 
-### bpy.type [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
+<tr>
+<td class="org-left">SYSTEM</td>
+<td class="org-left">Location of run-time data for system wide installation</td>
+<td class="org-left">%USERPROFILE%\AppData\Roaming\Blender Foundation\Blender\\2.83\\</td>
+<td class="org-left">*Library/Application Support/Blender/2.83*</td>
+</tr>
+</tbody>
+</table>
 
--   operator
--   panel
+The path ./2.83/ is relative to the Blender executable.
 
+<span class="underline">Windows Users</span>
+For default installation location addons is usually found in;
 
-### bpy.data [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
+C:\Program Files\Blender Foundation\blender\\[version]\addons 
 
-1.  Exploring the Blend Scene
+For the secondary "User" location, addons is usually found in;
 
-    print(list(bpy.data.objects))
-    
-    #Results: [bpy.data.objects['Camera'], bpy.data.objects['Cube'], bpy.data.objects['Light']]
-
--Please note bpy.data.objects['Object\_Name'] can be used to check Attributes.   
-
-2.my\_object.data.vertices
-
-3.my\_object.data.faces
-
-4.Another Method to select objects(By Name)
+C:\Users\\[profile]\AppData\Roaming\Blender Foundation\\&#x2026;
 
 
-## 02. BLENDER object, active\_object and selected\_objects
+## Scenes
+
+Scenes are a way to organize your work. Each blend-file can contain multiple scenes, which share other data such as objects and materials.
+
+
+## Objects
 
 A Blender scene is constructed from one or more objects. These objects can range from lights to illuminate your scene, basic 2D and 3D shapes to fill it with models, armatures to animate those models, to cameras. Blender object type (mesh, light, curve, camera, etc.) is composed from two parts: an Object and Object Data.
 1.Object-Holds information about the position, rotation and size of a particular element.
@@ -254,6 +199,198 @@ Objects in Blender could be of the following types:
 </tr>
 </tbody>
 </table>
+
+
+## Collections
+
+There can be many objects in a scene: A typical stage scene consists of furniture, props, lights, and backdrops. Blender helps you keep everything organized by allowing you to group like objects together. Objects can be grouped together without any kind of transformation relationship (unlike parenting). Collections are used to just logically organize your scene, or to facilitate one-step appending or linking between files or across scenes. Also View Layers refernce to collections and allow to set their visibility, selectability and other options. A view layer can have any collection enabled, and multiple view layers can use the same or different collections.
+
+
+## Extending Blender with Python
+
+Two basic ways
+
+
+### Addons
+
+An addon is simply a Python module with some additional requirements so Blender can display it in a list with useful information.
+
+
+### Scripts
+
+
+## Python Programming Environment in Blender
+
+The two most common ways to execute Python scripts are using the built-in text editor or entering commands in the Python console.
+
+
+# The BPY Module
+
+Blender sets up its python environment when it is started and stays active till blender process is killed. Blender provides the bpy module to the Python interpreter. This module can be imported in a script and gives access to Blender data, classes, and functions.
+
+    # To use bpy module 
+    import bpy
+
+Unfortunately the ‘bpy’ module cannot be used outside of Blender. But there are some workarounds to use Python efficiently inside Blender or we can use bpy library inside other IDEs.
+
+-   Check-out pip install fake-bpy-module-<version> where version could be the blender version you are using. More info at <https://github.com/nutti/fake-bpy-module>
+-   Add Blender Intellisense for scripting within blender environment.
+
+
+## 01. The Basic Modules
+
+
+### bpy.ops [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
+
+1.  Circle
+
+        import bpy                                               #imports the bpy library in BLENDER
+        
+        bpy.ops.mesh.primitive_circle_add(radius=1,
+                                          vertices = 20,
+                                          location=(0,4,0))
+    
+    1.  parameters
+    
+        -   vertices
+        -   radius
+        -   location=(0.0, 0.0, 0.0)
+        -   rotation=(0.0, 0.0, 0.0)
+
+2.  Sphere (Ico-sphere)
+
+        import bpy                                                #imports the bpy library in BLENDER
+        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3,
+                                              radius=4,
+                                              location=(2,7,8),
+                                              rotation=(0,0,0))
+    
+    1.  parameters
+    
+        -   subdivisions
+        -   radius
+        -   location=(0.0, 0.0, 0.0)
+        -   rotation=(0.0, 0.0, 0.0)
+
+3.  Cube
+
+        import bpy                                                #imports the bpy library in BLENDER
+        bpy.ops.mesh.primitive_cube_add(size = 3,
+                                        location=(2,7,8),
+                                        rotation=(0,0,0))
+    
+    1.  parameters
+    
+        -   size
+        -   align
+        -   location=(0.0, 0.0, 0.0)
+        -   rotation=(0.0, 0.0, 0.0)
+
+4.  Selection
+
+    1.  bpy.ops.object.select\_all()
+    
+        -   action = 'SELECT'
+        -   action = 'DESELECT'
+    
+    2.  bpy.ops.object.mode\_set(mode='EDIT')
+    
+        -   mode='EDIT'
+        -   mode='OBJECT'
+    
+    3.  bps.ops.mesh.select\_mode(type='FACE')
+    
+    4.  bps.ops.mesh.select\_mode(type='VERT')
+
+
+### bpy.context [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
+
+1.bpy.context.scene.objects
+Returns a collection of scene objects.
+
+    print([i for i in bpy.context.scene.objects])
+    # or the statement can also be written as, 
+    print(list(bpy.context.scene.objects))
+    
+    # Please note that printint type of bpy.context.scene.objects yeild "bpy_prop_collection"
+    print(type(bpy.context.scene.objects))
+    # Results in: <class 'bpy_prop_collection'>
+
+2.bpy.context.selected\_objects
+
+    # After selecting an object on the 3D View 
+    print([i for i in bpy.context.selected_objects])
+    # With some exception handling incase nothing is selected.
+    if bpy.context.selected_objects != []:
+        print(list(bpy.context.selected_objects))
+
+3.bpy.context.active\_object
+
+
+### bpy.type [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
+
+-   operator
+
+1.  Panel
+
+        import bpy
+        
+        
+        class HelloWorldPanel(bpy.types.Panel):
+            """Creates a Panel in the Object properties window"""
+            bl_label = "Hello World Panel"
+            bl_idname = "OBJECT_PT_hello"
+            bl_space_type = 'PROPERTIES'
+            bl_region_type = 'WINDOW'
+            bl_context = "object"
+        
+            def draw(self, context):
+                layout = self.layout
+        
+                obj = context.object
+        
+                row = layout.row()
+                row.label(text="Hello world!", icon='WORLD_DATA')
+        
+                row = layout.row()
+                row.label(text="Active object is: " + obj.name)
+                row = layout.row()
+                row.prop(obj, "name")
+        
+                row = layout.row()
+                row.operator("mesh.primitive_cube_add")
+        
+        
+        def register():
+            bpy.utils.register_class(HelloWorldPanel)
+        
+        
+        def unregister():
+            bpy.utils.unregister_class(HelloWorldPanel)
+        
+        
+        if __name__ == "__main__":
+            register()
+
+
+### bpy.data [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
+
+1.  Exploring the Blend Scene
+
+    print(list(bpy.data.objects))
+    
+    #Results: [bpy.data.objects['Camera'], bpy.data.objects['Cube'], bpy.data.objects['Light']]
+
+-Please note bpy.data.objects['Object\_Name'] can be used to check Attributes.   
+
+2.my\_object.data.vertices
+
+3.my\_object.data.faces
+
+4.Another Method to select objects(By Name)
+
+
+## 02. BLENDER object, active\_object and selected\_objects
 
 
 ## 03. Selecting Objects (meshes) in BLENDER.
