@@ -1,4 +1,3 @@
-[fn: nm,ednfr]
 
 
 # Blender API
@@ -70,6 +69,7 @@ C:\Users\\[profile]\AppData\Roaming\Blender Foundation\\&#x2026;
 ## Scenes
 
 Scenes are a way to organize your work. Each blend-file can contain multiple scenes, which share other data such as objects and materials.
+<https://i.imgur.com/GUF3vAhl.png>
 
 
 ## Objects
@@ -209,15 +209,26 @@ There can be many objects in a scene: A typical stage scene consists of furnitur
 
 ## Extending Blender with Python
 
-Two basic ways
+
+### Scripts
+
+A Python script in Blender is a collection of commands in a file designed to be executed like a program directly or importing it as a module.
+Some ways to run scripts directly in Blender,
+
+-   Loaded in the text editor and press Run Script.
+-   Typed or pasted into the interactive console.
+-   Typed in the the command line with Blender keyword. 
+    -   Example:
+        
+            blender --python /home/me/my_script.py
+
+Many Python scripts come bundled with Blender and can be used as a reference because they use the same API that script authors write tools in. Typical usage for scripts include: user interface, import/export, scene manipulation, automation, defining your own toolset and customization.
+On startup Blender scans the scripts/startup/ directory for Python modules and imports them. The exact location of this directory depends on your installation.
 
 
 ### Addons
 
-An addon is simply a Python module with some additional requirements so Blender can display it in a list with useful information. Addons must contain a **bl\_info** variable which Blender uses to read metadata such as name, author, category and URL
-
-
-### Scripts
+Some of Blender functionality is kept optional, alongside scripts loaded at startup we have addons which are kept in their own directory scripts/addons, and only load on startup if selected from the user preferences. An addon is simply a Python module with some additional requirements so Blender can display it in a list with useful information. Addons must contain a **bl\_info** variable which Blender uses to read metadata such as name, author, category and URL.
 
 
 ## Python Programming Environment in Blender
