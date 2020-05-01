@@ -413,11 +413,9 @@ Returns a collection of scene objects.
 
 ### bpy.data [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
-1.  Exploring the Blend Scene
-
-    print(list(bpy.data.objects))
+1.  Exploring the Blend Scene 
     
-    #Results: [bpy.data.objects['Camera'], bpy.data.objects['Cube'], bpy.data.objects['Light']]
+        1  print(list(bpy.data.objects))          # Results: [bpy.data.objects['Camera'], bpy.data.objects['Cube'], bpy.data.objects['Light']]
 
 -Please note bpy.data.objects['Object\_Name'] can be used to check Attributes.   
 
