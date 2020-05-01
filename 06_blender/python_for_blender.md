@@ -1,8 +1,9 @@
+[^What a footnote]
 
 
 # Blender API
 
-Before start talking about API and Python lets understand a few core concepts of Blender.
+Before we start talking about API and Python, let us understand a few core concepts of Blender.
 
 
 ## Blender Directory Layout
@@ -213,7 +214,7 @@ Two basic ways
 
 ### Addons
 
-An addon is simply a Python module with some additional requirements so Blender can display it in a list with useful information.
+An addon is simply a Python module with some additional requirements so Blender can display it in a list with useful information. Addons must contain a **bl\_info** variable which Blender uses to read metadata such as name, author, category and URL
 
 
 ### Scripts
