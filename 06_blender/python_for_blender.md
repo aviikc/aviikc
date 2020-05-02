@@ -265,6 +265,8 @@ Unfortunately the ‘bpy’ module cannot be used outside of Blender. But there 
 
 ### bpy.ops [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
+All the operations you can do in Blender, from modeling to appending files to rendering. 
+
 1.  Circle
 
         import bpy                                               #imports the bpy library in BLENDER
@@ -328,6 +330,8 @@ Unfortunately the ‘bpy’ module cannot be used outside of Blender. But there 
 
 ### bpy.context [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
+Read-only lists of what’s currently active in Blender.
+
 1.bpy.context.scene.objects
 Returns a collection of scene objects.
 
@@ -351,6 +355,8 @@ Returns a collection of scene objects.
 
 
 ### bpy.type [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
+
+Types are abstract classes that we can inherit.
 
 1.  Operator
 
@@ -415,6 +421,8 @@ Returns a collection of scene objects.
 
 ### bpy.data [Link](https://docs.blender.org/api/current/bpy.ops.mesh.html)
 
+Blender’s scene data. Objects, materials etc.
+
 1.  Exploring the Blend Scene 
     
         1  print(list(bpy.data.objects))          
@@ -456,7 +464,7 @@ Blender distinguishes between two different states of selection
 
 ## 05. Example Programs
 
-1.  Creating a grid of boxes
+1.  Creating a grid of boxes.
 
     A simple python program to iterate over a list in list scenario where for every iteration of x, a y range is also iterated.
     
@@ -469,7 +477,7 @@ Blender distinguishes between two different states of selection
         # Same as above but in Y direction. Note range function range(0,n) yeilds numbers from 0 to n-1.
                 bpy.ops.mesh.primitive_cube_add(location=(x,y,0))
 
-2.  A Simple Grid of objects with random sizes
+2.  A Simple grid of objects with random sizes.
 
     Lets randomize some attributes of the boxes.
     
@@ -482,7 +490,7 @@ Blender distinguishes between two different states of selection
                 r = random.uniform(0.2, 0.6)
                 bpy.ops.mesh.primitive_cube_add(size=round(r,1), location=(x,y,0))
 
-3.  Using the third axis to create a grid of cubes
+3.  Using the third axis to create a grid of cubes.
 
     We can even add some depth to this. By adding a yz plane. (Remember in  Blender Z axis is upwards.)
     
@@ -494,7 +502,7 @@ Blender distinguishes between two different states of selection
                 for z in range (0, 5):
                     bpy.ops.mesh.primitive_cube_add(size=.3, location=(x,y,z))
 
-4.  Random objects on lattice
+4.  Random objects on a lattice.
 
     Lets again randomize. We will randomize mesh types being created based on a random number being generated.
     
@@ -512,8 +520,10 @@ Blender distinguishes between two different states of selection
                     else:
                         bpy.ops.mesh.primitive_ico_sphere_add(radius=.2, location=(x,y,z))
 
-5.  Creating a set of spheres at each vertex of a circle.
+5.  Using bpy.data to grab attributes.
 
+    Accessing attributes of objects(In this case it is the circle) to get vertex locations. We then use the vertex location in creating ico spheres at those vertices. Try randomizing the sizes. You could achieve some cool shapes.
+    
         1  import bpy
         2  
         3  bpy.ops.mesh.primitive_circle_add(radius=6, vertices=12)

@@ -214,3 +214,13 @@ bpy.types.RenderEngine
 
 For more convenient loading/unloading bpy.utils.register\_module (module) and bpy.utils.unregister\_module (module) functions exist.
 
+    def select_off_center(self, context):
+    
+    
+        obj = context.active_object.data
+    
+    
+        for verts in obj.vertices:
+            if verts.co.x < -0.001:    
+                verts.select = True
+
