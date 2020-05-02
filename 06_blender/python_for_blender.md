@@ -65,6 +65,8 @@ For the secondary "User" location, addons is usually found in;
 
     C:\Users\[profile]\AppData\Roaming\Blender Foundation\...
 
+homefile: '*home/aviik*.config/blender/2.82/config/startup.blend
+
 
 ## Scenes
 
@@ -415,7 +417,8 @@ Returns a collection of scene objects.
 
 1.  Exploring the Blend Scene 
     
-        1  print(list(bpy.data.objects))          # Results: [bpy.data.objects['Camera'], bpy.data.objects['Cube'], bpy.data.objects['Light']]
+        1  print(list(bpy.data.objects))          
+        2  # Results: [bpy.data.objects['Camera'], bpy.data.objects['Cube'], bpy.data.objects['Light']]
 
 -Please note bpy.data.objects['Object\_Name'] can be used to check Attributes.   
 
