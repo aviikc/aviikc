@@ -460,38 +460,59 @@ Blender distinguishes between two different states of selection
 
     A simple python program to iterate over a list in list scenario where for every iteration of x, a y range is also iterated.
     
-        1  import bpy 
-        2  import random
-        3  
-        4  
-        5  for x in range(0, 3):             # Change the maxvalue of range to increase the number of boxes and spread of the boxes in X direction.
-        6      for y in range(0, 3):         # Same as above but in Y direction. Note range function range(0,n) yeilds numbers from 0 to n-1.
-        7          bpy.ops.mesh.primitive_cube_add(location=(x,y,0))
-    
+        import bpy 
+        
+        
+        for x in range(0, 3):             
+        # Change the maxvalue of range to increase the number of boxes and spread of the boxes in X direction.
+            for y in range(0, 3):         
+        # Same as above but in Y direction. Note range function range(0,n) yeilds numbers from 0 to n-1.
+                bpy.ops.mesh.primitive_cube_add(location=(x,y,0))
+
+2.  A Simple Grid of objects with random sizes
+
     Lets randomize some attributes of the boxes.
     
-        1  import bpy 
-        2  import random
-        3  
-        4  
-        5  for x in range(0, 20):
-        6      for y in range(0, 15):
-        7          r = random.uniform(0.2, 0.6)
-        8          bpy.ops.mesh.primitive_cube_add(size=round(r,1), location=(x,y,0))
-    
+        import bpy 
+        import random
+        
+        
+        for x in range(0, 20):
+            for y in range(0, 15):
+                r = random.uniform(0.2, 0.6)
+                bpy.ops.mesh.primitive_cube_add(size=round(r,1), location=(x,y,0))
+
+3.  Using the third axis to create a grid of cubes
+
     We can even add some depth to this. By adding a yz plane. (Remember in  Blender Z axis is upwards.)
     
-        1  import bpy 
-        2  import random
-        3  
-        4  
-        5  for x in range(0, 3):
-        6      for y in range(0,3):
-        7          for z in range (0, 3):
-        8              r = random.uniform(0.2, 0.6)
-        9              bpy.ops.mesh.primitive_cube_add(size=round(r,1), location=(x,y,z))
+        import bpy 
+        
+        
+        for x in range(0, 5):
+            for y in range(0, 5):
+                for z in range (0, 5):
+                    bpy.ops.mesh.primitive_cube_add(size=.3, location=(x,y,z))
 
-2.  Creating a set of spheres at each vertex of a circle.
+4.  Random objects on lattice
+
+    Lets again randomize. We will randomize mesh types being created based on a random number being generated.
+    
+        import bpy 
+        import random
+        
+        for x in range(0, 5):
+            for y in range(0, 5):
+                for z in range (0, 5):
+                    r = random.uniform(0.1, 0.7)
+                    if round(r, 1)>0 and round(r, 1)<.3:
+                        bpy.ops.mesh.primitive_cone_add(radius1=.2, depth = .2, location=(x,y,z))
+                    elif round(r, 1)>=0.3 and round(r, 1)<0.6:
+                        bpy.ops.mesh.primitive_cube_add(size=.2, location=(x,y,z))
+                    else:
+                        bpy.ops.mesh.primitive_ico_sphere_add(radius=.2, location=(x,y,z))
+
+5.  Creating a set of spheres at each vertex of a circle.
 
         1  import bpy
         2  
