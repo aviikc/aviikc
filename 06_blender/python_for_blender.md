@@ -456,17 +456,50 @@ Blender distinguishes between two different states of selection
 
 ## 05. Example Programs
 
-1.  Creating a set of spheres at each vertex of a circle.
+1.  Creating a grid of boxes
 
-        
-        import bpy
-        
-        
-        bpy.ops.mesh.primitive_circle_add(radius=6, vertices=12)
-        
-        my_circ = bpy.context.object
-        cir_verts = len(my_circ.data.vertices)
-        
-        for i in range(cir_verts):
-            bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
+    A simple python program to iterate over a list in list scenario where for every iteration of x, a y range is also iterated.
+    
+        1  import bpy 
+        2  import random
+        3  
+        4  
+        5  for x in range(0, 3):             # Change the maxvalue of range to increase the number of boxes and spread of the boxes in X direction.
+        6      for y in range(0, 3):         # Same as above but in Y direction. Note range function range(0,n) yeilds numbers from 0 to n-1.
+        7          bpy.ops.mesh.primitive_cube_add(location=(x,y,0))
+    
+    Lets randomize some attributes of the boxes.
+    
+        1  import bpy 
+        2  import random
+        3  
+        4  
+        5  for x in range(0, 20):
+        6      for y in range(0, 15):
+        7          r = random.uniform(0.2, 0.6)
+        8          bpy.ops.mesh.primitive_cube_add(size=round(r,1), location=(x,y,0))
+    
+    We can even add some depth to this. By adding a yz plane. (Remember in  Blender Z axis is upwards.)
+    
+        1  import bpy 
+        2  import random
+        3  
+        4  
+        5  for x in range(0, 3):
+        6      for y in range(0,3):
+        7          for z in range (0, 3):
+        8              r = random.uniform(0.2, 0.6)
+        9              bpy.ops.mesh.primitive_cube_add(size=round(r,1), location=(x,y,z))
+
+2.  Creating a set of spheres at each vertex of a circle.
+
+        1  import bpy
+        2  
+        3  bpy.ops.mesh.primitive_circle_add(radius=6, vertices=12)
+        4  
+        5  my_circ = bpy.context.object
+        6  cir_verts = len(my_circ.data.vertices)
+        7  
+        8  for i in range(cir_verts):
+        9      bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
 
