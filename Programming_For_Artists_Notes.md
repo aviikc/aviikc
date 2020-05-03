@@ -1,13 +1,13 @@
 
 # Table of Contents
 
-1.  [Why Use Python](#org66bf453)
-2.  [How Python is Implemented](#org4a4f8e9)
-3.  [](#org89a6dce)
+1.  [Why Use Python](#org8a9919b)
+2.  [How Python is Implemented](#orgd7b54ab)
+3.  [](#orgdb5a013)
 
 
 
-<a id="org66bf453"></a>
+<a id="org8a9919b"></a>
 
 # Why Use Python
 
@@ -23,7 +23,7 @@
 -   Great documentation. Python is equipped with comprehensive documentation mak-ing problem solving much easier.
 
 
-<a id="org4a4f8e9"></a>
+<a id="orgd7b54ab"></a>
 
 # How Python is Implemented
 
@@ -37,15 +37,15 @@ Some post-production companies have a dedicated R&D depart-ment that works on pr
 
 3.Pipeline/workflowenhancers. 
 
-    There is a vast array of utilitiesthat can be madewith Python and be helpful invisual effects productions, that are not directly related to DCC software. For example, various scripts that can execute shell commands forvarious purposes: scan directories and delete bitmap fileswith specific metadata, batch con-vert files, resize images that match a certain criterion. There are also multiple modules to work with image processing in Python. Such include OpenImageIO, OpenEXRandPythonMagick. They allow for basic analysis and manipulation of both image data and metadata. Apart from that,there also modules for color manipulationthat enablesto convert image from one color space to another or linearize the image –OpenColorIO
-14andColorPy.[17] Although most established VFX studios rely on comprehensive DAM systems,  individual  artists  and start-upscanmake  use  of  Python  programming and develop their own solutions in the matter of file transferring, management and synchro-nization. The same applies for project management.It is not uncommon for a facility to have some small desktop apps that artists would use to track jobs, deadlines and deliver project statisticsfor benchmarking. By and large, Python can be integrated into any aspect of the post-production–it all comesdownto the specific problem at hand.
+    There is a vast array of utilities that can be madewith Python and be helpful invisual effects productions, that are not directly related to DCC software. For example, various scripts that can execute shell commands forvarious purposes: scan directories and delete bitmap fileswith specific metadata, batch con-vert files, resize images that match a certain criterion. There are also multiple modules to work with image processing in Python. Such include OpenImageIO, OpenEXRandPythonMagick. They allow for basic analysis and manipulation of both image data and metadata. Apart from that,there also modules for color manipulationthat enablesto convert image from one color space to another or linearize the image OpenColorIO
+14andColorPy. Although most established VFX studios rely on comprehensive DAM systems,  individual  artists  and start-upscanmake  use  of  Python  programming and develop their own solutions in the matter of file transferring, management and synchro-nization. The same applies for project management.It is not uncommon for a facility to have some small desktop apps that artists would use to track jobs, deadlines and deliver project statisticsfor benchmarking. By and large, Python can be integrated into any aspect of the post-production–it all comesdownto the specific problem at hand.
 
 4.Smoothstagetransition. 
 
 Bringing up the fact, that in certain cases every stage of pipe-line is done in different software and sometimes a single stage can be completed with a  diverse  assortment  of  tools, the  issue  ofmanagement  and  configuration  of  digital content creation software occurs.Most of the tools used in VFX productionwerenot developed to easilyinteractwith each other, besidesmaybesupporting a few common file  formats. In  this  scenario  Python  serves  the  underlying  role  of theglue  that  ties pieces of  assets together.  There  are  different  Python  modules  for  content  and  data transfer  across distinctive  software  tools.  Alembicgl  isa module  that  allows  to  work with alembic, a file format often used for geometry caching. Similarly, pyopenvdb is a module that provides withan access to VDBvolumesdata management with Pytho
 
 
-<a id="org89a6dce"></a>
+<a id="orgdb5a013"></a>
 
 # 
 
