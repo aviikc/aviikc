@@ -534,7 +534,35 @@ Blender distinguishes between two different states of selection
         8  for i in range(cir_verts):
         9      bpy.ops.mesh.primitive_ico_sphere_add(subdivisions = 3, radius=1.2, location = my_circ.data.vertices[i].co)
 
-6.  Crteating a basic UI
+6.  A basic UI
+
+         1  from bpy.types import Panel
+         2  
+         3  
+         4  class MyFirstBlenderUI(Panel):
+         5      """My Tooltip"""
+         6      bl_idname = "MY_PT_panel"           #Warning: 'panel.panel1' doesn't contain '_PT_' with prefix & suffix
+         7      bl_label = 'My First Ui Panel'
+         8      bl_space_type = 'VIEW_3D'
+         9      bl_region_type = 'UI'
+        10      bl_category = 'My Panel'
+        11  
+        12      def draw(self, context):
+        13          layout = self.layout
+        14          return {''}
+        15  
+        16  def register():
+        17      from bpy.utils import register_class
+        18      register_class(MyFirstBlenderUI)
+        19  
+        20  def unregister():
+        21      from bpy.utils import unregister_class
+        22      unregister_class(MyFirstBlenderUI)
+        23  
+        24  if __name__ == "__main__":
+        25      register()
+
+7.  Adding Label to UI
 
          1  from bpy.types import Panel
          2  
