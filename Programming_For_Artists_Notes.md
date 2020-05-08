@@ -1,19 +1,29 @@
 
 # Table of Contents
 
-1.  [Introduction](#orgc8f2d2d)
-        1.  [Why Use Python](#orgc06852c)
-        2.  [How Python is Implemented](#orgcc6e382)
-        3.  [Software offering Python Interface](#orgf9b35b1)
+1.  [Introduction](#org02e013c)
+        1.  [Why Use Python](#orgf6cae71)
+        2.  [How Python is Implemented](#org8b77bb9)
+        3.  [Software offering Python Interface](#org18240ed)
+2.  [Tools](#orga60d3ad)
+3.  [Introduction To Python Programming](#org7c4a74b)
+    1.  [Python Interpreter](#org96ab000)
+    2.  [Python Programming](#org1f235f3)
+        1.  [Basic Python Programming](#orgd9d80a5)
+        2.  [Intermediate Python Concepts](#org79b6f35)
+        3.  [Advanced Python](#org0a213e0)
+        4.  [Object Oriented Programming](#org73dd5fe)
+        5.  [Gui Development with PyQt](#org295c154)
+4.  [Blender - Python API](#orgaad60db)
 
 
 
-<a id="orgc8f2d2d"></a>
+<a id="org02e013c"></a>
 
 # Introduction
 
 
-<a id="orgc06852c"></a>
+<a id="orgf6cae71"></a>
 
 ### Why Use Python
 
@@ -29,7 +39,7 @@
 -   Great documentation. Python is equipped with comprehensive documentation mak-ing problem solving much easier.
 
 
-<a id="orgcc6e382"></a>
+<a id="org8b77bb9"></a>
 
 ### How Python is Implemented
 
@@ -50,7 +60,7 @@ There is a vast array of utilities that can be madewith Python and be helpful in
 Bringing up the fact, that in certain cases every stage of pipe-line is done in different software and sometimes a single stage can be completed with a  diverse  assortment  of  tools, the  issue  ofmanagement  and  configuration  of  digital content creation software occurs.Most of the tools used in VFX productionwerenot developed to easilyinteractwith each other, besidesmaybesupporting a few common file  formats. In  this  scenario  Python  serves  the  underlying  role  of the glue  that  ties pieces of  assets together.  There  are  different  Python  modules  for  content  and  data transfer  across distinctive  software  tools.  Alembicgl  isa module  that  allows  to  work with alembic, a file format often used for geometry caching. Similarly, pyopenvdb is a module that provides withan access to VDBvolumesdata management with Pytho
 
 
-<a id="orgf9b35b1"></a>
+<a id="org18240ed"></a>
 
 ### Software offering Python Interface
 
@@ -73,5 +83,211 @@ Bringing up the fact, that in certain cases every stage of pipe-line is done in 
 5.MAXON: Cinema 4D
 6.Blackmagic Design: Fusion
 7.Next Limit Technologies: RealFlow
-8.Shotgun Software: Shotg
+8.Shotgun Software: Shotgun
+
+
+<a id="orga60d3ad"></a>
+
+# Tools
+
+1.Command Line Interface/ Terminal - Although the command-line interface (Read, Eval, Print, Loop or in short "The Python Repl") can be used to program using Python commands and it is considered an efficient practise in the
+new learner's early days. There lies some under lying problems with this method. Documents relating to definitions of types are not so readily visible. It will take an immense learning of parallel technologies of terminal
+multiplexers and command line debuggers to execute simple programs. My recomendation is use the command line only to execute the programs. Learn some basic commandline instructions and system paths.
+    -Basic Command-Line Instructions(directory names are case sensitive)
+        -Change Directory 
+
+    cd C:\Python37
+
+Linux and MacOS users can use forwardslash("/")
+
+    cd ~/temp
+
+To get one level out of the current directory,
+
+    cd ..                
+
+-List directory 
+
+    dir 
+
+For Linux and mac users,
+
+    ls
+
+-Current directory
+
+    chdir
+
+For Linux and mac users,
+
+    pwd
+
+-Also you should look into
+  -Absolute Paths
+  -Relative Paths
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Path Type</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="org-left">Absolute Path</td>
+<td class="org-left">It contains the full path to a directory or file.</td>
+<td class="org-left">C:\Windows\calc.exe</td>
+</tr>
+
+
+<tr>
+<td class="org-left">Relative Path</td>
+<td class="org-left">It contains the path to a directory or file relative to the current working directory</td>
+<td class="org-left">./myApplication.exe</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+2.Version Control System(VCS) - Although Not Compulsive to learn a version control system, it always helps to save works in progress at certain stages and back it up in case of data loss or unforeseen events, moreover version
+controlling can save programs at different nodal points to which we can always revert back to incase somethings dont work out. I will be using Git( Install Git ) as my version controll system, also you can use any online
+repository to back-up your files. Some of the easy git commands you might find handy.
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="org-left">git init</td>
+<td class="org-left">Create an empty Git repository or reinitialize an existing one.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">git add <file<sub>name</sub>></td>
+<td class="org-left">Add the file contents to the index.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">git add .</td>
+<td class="org-left">Add all unindexed files in the repository to the index.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">git commit -m "some comment"</td>
+<td class="org-left">Save changes to the repository with a string comment.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">git status</td>
+<td class="org-left">Displays the state of the repository and the staging area.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">git remote add origin <repo<sub>url</sub>></td>
+<td class="org-left">To add a remote to the repository.</td>
+</tr>
+
+
+<tr>
+<td class="org-left">git push origin master</td>
+<td class="org-left">Push committed changes in the local master branch to the remote branch.</td>
+</tr>
+</tbody>
+</table>
+
+3.Python Installation - An intallation of python(preferably 3.7+ to suit the course) is required. While installing please 
+    -Add python to the enironment paths.
+    -Install pip along with Python. pip is one of the package managers for python and it aids in collecting python wheel files from the PyPi libraries and adding them to sys.path
+    -Check Python Installation
+    -Execute A Python Program
+
+    
+
+    
+
+4.Install an IDE - Although Python comes with IDLE( Integrated Development and Learning Environment ) which is a good IDE for writing Python Scripts, I recomment the use of VSCode for beginners. Some other good IDEs that 
+can be used for Python scripting are Sublime Text, Atom, Eclipse, Pycharm, etc. Jupyter Notebooks or Azure Notebooks can also be used to write Python scripts. Most of my demo this code would be done in Emacs(I do not
+recommend for beginners) and VSCode.
+
+5.Blender - We will use the Blender Python API for development of tools in Blender. 
+
+
+<a id="org7c4a74b"></a>
+
+# Introduction To Python Programming
+
+
+<a id="org96ab000"></a>
+
+## Python Interpreter
+
+
+<a id="org1f235f3"></a>
+
+## Python Programming
+
+
+<a id="orgd9d80a5"></a>
+
+### Basic Python Programming
+
+
+<a id="org79b6f35"></a>
+
+### Intermediate Python Concepts
+
+
+<a id="org0a213e0"></a>
+
+### Advanced Python
+
+
+<a id="org73dd5fe"></a>
+
+### Object Oriented Programming
+
+
+<a id="org295c154"></a>
+
+### Gui Development with PyQt
+
+
+<a id="orgaad60db"></a>
+
+# Blender - Python API
 
